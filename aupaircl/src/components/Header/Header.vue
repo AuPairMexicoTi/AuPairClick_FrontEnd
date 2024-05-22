@@ -1,5 +1,5 @@
 <template>
-  <b-nav class="navbar navbar-expand-lg shadow">
+  <b-nav class="navbar navbar-expand-lg shadow fixed-top header-fixed">
     <b-container fluid>
       <b-link class="navbar-brand" :to="{ name: '/' }">
         <img :src="logo" alt="Logo" width="74" />
@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <b-navbar-nav class="ms-auto">
           <!-- Dropdowns -->
-          <b-nav-item-dropdown text="Para Au Pairs" right >
+          <b-nav-item-dropdown text="Para Au Pairs" right>
             <template #button-content>
               Para Au Pairs
             </template>
@@ -20,7 +20,7 @@
             <b-dropdown-item :to="{ name: '/' }">Glosario</b-dropdown-item>
             <b-dropdown-item :to="{ name: '/' }">Historias de Au Pairs</b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item-dropdown text="Para Familias" right >
+          <b-nav-item-dropdown text="Para Familias" right>
             <template #button-content>
               Para Familias
             </template>
@@ -49,7 +49,6 @@
               Iniciar sesión
             </b-dropdown-item>
           </b-nav-item-dropdown>
-      
         </b-navbar-nav>
       </div>
     </b-container>
@@ -61,12 +60,15 @@ export default {
   name: "Header",
   data() {
     return {
-      logo: "",
+      logo: "https://www.amaap.com.mx/assets/images/agencias/image001.png",
     };
   },
 };
 </script>
 
+
 <style scoped>
-/* Estilos personalizados si es necesario */
+.header-fixed {
+  z-index: 3; 
+}
 </style>

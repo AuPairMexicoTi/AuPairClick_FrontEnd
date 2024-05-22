@@ -2,18 +2,26 @@ export default [
     {
         path: '/',
         name: '',
-        redirect:'/home',
+        redirect:'/Inicio',
         component: () => import('../layouts/PublicLayout.vue'),
         meta:{
-            title: 'Home',
+            title: 'Inicio',
         },
         children: [
             {
-                path: '/home',
+                path: '/Inicio',
                 name: 'home',
                 component: () => import('../views/LandPage/LandPage.vue'),
                 meta:{
                     title: 'Inicio',
+                }
+            },
+            {
+                path: '/login',
+                name: 'login',
+                component: () => import('../views/Login/Login.vue'),
+                meta:{
+                    title: 'Login',
                 }
             }
         ]

@@ -4,7 +4,7 @@
         <b-row class="row">
           <Header />
         </b-row>
-        <div class="d-flex flex-column text-center">
+        <div class="main-content d-flex flex-column text-center">
           <b-col class="col">
             <div class="">
               <router-view />
@@ -32,3 +32,13 @@
     }
   }
   </script>
+  <style scoped>
+  .main-content {
+    margin-top: 65px;
+  }
+  @media (max-width: 30em) {
+    .main-content{
+      margin-top: 67px;
+    }
+  }
+  </style>
