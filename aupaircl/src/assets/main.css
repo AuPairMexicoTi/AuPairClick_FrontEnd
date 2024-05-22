@@ -1,0 +1,23 @@
+.listicon {
+    list-style-type: none;
+}
+
+.listicon p {
+    color: #5A5753;
+    font-weight: bold;
+}
+
+.features-section-g {
+    background-color: #f8f9fa !important;
+    padding: 2rem 0;
+
+}
+
+.features-section-b {
+    background-color: white !important;
+    padding: 2rem 0;
+    align-items: center;
+}
+::-webkit-scrollbar {
+    display: none;
+}
