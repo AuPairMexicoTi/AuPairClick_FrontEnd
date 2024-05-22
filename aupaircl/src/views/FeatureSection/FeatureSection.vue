@@ -66,14 +66,17 @@
             </b-col>
         </b-row>
         <FeatureFuction />
+        <FeatureIdea />
     </div>
 </template>
 
 <script>
 import FeatureFuction from '../FeatureFuction/FeatureFuction.vue';
+import FeatureIdea from '../FeatureIdea/FeatureIdea.vue';
 export default {
     components: {
-        FeatureFuction
+        FeatureFuction,
+        FeatureIdea,
     }
 }
 </script>

@@ -1,9 +1,10 @@
 <template lang="">
     <div class="mt-3">
         <section class="features-section-g"> 
+            <b-container>
             <strong  style="font-size: 36px;">¿Cómo funciona?</strong> 
             <b-row class="py-5 my-5 ms-5">
-            <b-col col lg="2" class="mt-3">
+                <b-col col lg="2" class="mt-3 ms-3">
                 <div>
                     <p class="numbers"><strong>1</strong></p>
                     <br>
@@ -12,7 +13,7 @@
                     </div>
                      </div>
             </b-col>
-            <b-col col lg="2" class="mt-3">
+            <b-col col lg="2" class="mt-3 ms-3">
                 <div>
                     <p class="numbers"><strong>2</strong></p>
                     <br>
@@ -21,7 +22,7 @@
                     </div>
                      </div>
             </b-col>
-            <b-col col lg="2" class="mt-3">
+            <b-col col lg="2" class="mt-3 ms-3">
                 <div>
                     <p class="numbers"><strong>3</strong></p>
                     <br>
@@ -30,7 +31,7 @@
                     </div>
                      </div>
             </b-col>
-            <b-col col lg="2" class="mt-3">
+            <b-col col lg="2" class="mt-3 ms-3">
                 <div>
                     <p class="numbers"><strong>4</strong></p>
                     <br>
@@ -39,7 +40,7 @@
                     </div>
                      </div>
             </b-col>
-            <b-col col lg="2" class="mt-3">
+            <b-col col lg="2" class="mt-3 ms-3">
                 <div>
                     <p class="numbers"><strong>5</strong></p>
                     <br>
@@ -49,6 +50,7 @@
                      </div>
             </b-col>
         </b-row>
+    </b-container>
     </section>
     </div>
 </template>
