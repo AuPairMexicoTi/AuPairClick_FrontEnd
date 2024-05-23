@@ -1,3 +1,5 @@
+import Login from '../views/Login/Login.vue'
+import LandPage from '../views/LandPage/LandPage.vue'
 export default [
     {
         path: '/',
@@ -11,7 +13,7 @@ export default [
             {
                 path: '/Inicio',
                 name: 'home',
-                component: () => import('../views/LandPage/LandPage.vue'),
+                component: LandPage,
                 meta:{
                     title: 'Inicio',
                 }
@@ -19,7 +21,7 @@ export default [
             {
                 path: '/login',
                 name: 'login',
-                component: () => import('../views/Login/Login.vue'),
+                component: Login,
                 meta:{
                     title: 'Login',
                 }
