@@ -1,58 +1,70 @@
 <template>
-  <b-nav class="navbar navbar-expand-lg shadow fixed-top header-fixed">
-    <b-container fluid>
-      <b-link class="navbar-brand" :to="{ name: '/' }">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light shadow bg-light">
+    <div class="container-fluid">
+      <router-link class="navbar-brand" :to="{ name: '/' }">
         <img :src="logo" alt="Logo" width="74" />
-      </b-link>
-      <b-button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      </router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </b-button>
+      </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
-        <b-navbar-nav class="ms-auto">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
           <!-- Dropdowns -->
-          <b-nav-item-dropdown text="Para Au Pairs" right>
-            <template #button-content>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="auPairDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Para Au Pairs
-            </template>
-            <b-dropdown-item :to="{ name: '/' }">Página principal</b-dropdown-item>
-            <b-dropdown-item :to="{ name: '/' }">Encuentra una familia</b-dropdown-item>
-            <b-dropdown-item :to="{ name: '/' }">Glosario</b-dropdown-item>
-            <b-dropdown-item :to="{ name: '/' }">Historias de Au Pairs</b-dropdown-item>
-          </b-nav-item-dropdown>
-          <b-nav-item-dropdown text="Para Familias" right>
-            <template #button-content>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="auPairDropdown">
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Página principal</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Encuentra una familia</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Glosario</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Historias de Au Pairs</router-link></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="familiesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Para Familias
-            </template>
-            <b-dropdown-item :to="{ name: '/' }">Página principal</b-dropdown-item>
-            <b-dropdown-item :to="{ name: '/' }">Glosario</b-dropdown-item>
-          </b-nav-item-dropdown>
-          <b-nav-item-dropdown text="Acerca de AuPairClick" right>
-            <template #button-content>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="familiesDropdown">
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Página principal</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Glosario</router-link></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Acerca de AuPairClick
-            </template>
-            <b-dropdown-item :to="{ name: '/' }">Acerca de Nosotros</b-dropdown-item>
-            <b-dropdown-item :to="{ name: '/' }">Cómo trabajamos</b-dropdown-item>
-            <b-dropdown-item :to="{ name: '/' }">Preguntas frecuentes</b-dropdown-item>
-            <b-dropdown-item :to="{ name: '/' }">Referencias</b-dropdown-item>
-          </b-nav-item-dropdown>
-          <b-nav-item :to="{ name: '/' }" class="me-3">
-            Contacto
-          </b-nav-item>
-          <!-- Dropdown de iniciar sesión -->
-          <b-nav-item-dropdown right no-caret>
-            <template #button-content>
-              <b-icon icon="person" color="black" />
-            </template>
-            <b-dropdown-item :to="{ name: '/' }" class="d-flex align-items-center nav-item">
-              <b-icon icon="person" class="mr-2" />
-              Iniciar sesión
-            </b-dropdown-item>
-          </b-nav-item-dropdown>
-        </b-navbar-nav>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Acerca de Nosotros</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Cómo trabajamos</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Preguntas frecuentes</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">Referencias</router-link></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link me-3" :to="{ name: '/' }">Contacto</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link me-3" :to="{ name: '/' }">Entrar</router-link>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Idioma
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+              <li><router-link class="dropdown-item">Español</router-link></li>
+              <li><router-link class="dropdown-item">Ingles</router-link></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </b-container>
-  </b-nav>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -66,9 +78,8 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .header-fixed {
-  z-index: 3; 
+  z-index: 3;
 }
 </style>
