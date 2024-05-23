@@ -7,10 +7,10 @@
                     <b-col md="6" class="d-flex flex-column justify-content-center align-items-center"
                         data-aos="fade-right">
                         <div class="question-card p-4 text-center">
-                            <h2>¿Tienes alguna pregunta?</h2>
+                            <h2>{{ $t('questions') }}</h2>
                             <p>
-                                <b>El equipo de AuPairClick estará encantado de ayudarte.</b>                                Ponte en contacto con nosotros por teléfono o correo electrónico. </p>
-                            <b-button variant="primary" href="/contacto">Contáctanos</b-button>
+                                <b>{{ $t('teamAupaircl') }}</b> {{ $t('teamContacts') }}</p>
+                            <b-button variant="primary" href="/contacto">{{ $t('btnContact') }}</b-button>
                         </div>
                     </b-col>
 
@@ -18,12 +18,10 @@
                     <b-col md="6" class="d-flex flex-column justify-content-center align-items-center"
                         data-aos="fade-left">
                         <div class="philosophy-card p-4 text-center">
-                            <h2>Filosofía del programa Au Pair</h2>
-                            <strong>¿Qué es necesario tener en cuenta durante la estancia au pair?</strong>
+                            <h2>{{$t('filosofy')}}</h2>
+                            <strong>{{ $t('requirementsQuestion') }}</strong>
                             <p>
-                                Infórmate sobre los aspectos básicos de la estancia para que ambas partes se beneficien
-                                y se enriquezcan de la experiencia.
-
+                                {{ $t('aspectsQuestion') }}    
                             </p>
                         </div>
                     </b-col>

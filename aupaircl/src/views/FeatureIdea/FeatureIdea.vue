@@ -2,11 +2,11 @@
     <div>
         <section class="border-top border-button mt-5"> 
             <b-container class="mt-3" data-aos="zoom-in">
-              <h2 class="mb-4">  <strong >Nuestra idea básica de au pair</strong> </h2>   
-                <strong>¿Qué está implicado realmente en la relación de la familia au pair-host?
+              <h2 class="mb-4">  <strong >{{$t('weIdea')}}</strong> </h2>   
+                <strong>
+                    {{$t('whatIdea')}}
                 </strong>
-                <p>Explicamos los aspectos esenciales de esta combinación ganadora-ganadora y sus beneficios especiales para parejas de au pair y familias de acogida.
-                </p>    
+                <p>{{$t('explication')}}</p>    
             </b-container>
         </section>
     </div>

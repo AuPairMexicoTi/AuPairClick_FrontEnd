@@ -1,10 +1,10 @@
 <template>
     <div class="hero">
       <div class="hero-overlay container">
-        <h1 class="display-3 mb-4">Bienvenido a AuPairClick</h1>
-        <p class="lead mb-4">Encuentra tu au pair o familia anfitriona ideal</p>
-        <b-button variant="primary" href="#" class="me-3 btn-empezar">Encontrar una familia</b-button>
-        <b-button variant="outline-primary" href="#" class="btn-mas-info">Encontrar un Au Pair</b-button>
+        <h1 class="display-3 mb-4">{{ $t('welcomeAuPairCl') }}</h1>
+        <p class="lead mb-4">{{ $t('findAuPairOrFamily') }}</p>
+        <b-button variant="primary" href="#" class="me-3 btn-empezar">{{ $t('findAFamily') }}</b-button>
+        <b-button variant="outline-primary" href="#" class="btn-mas-info">{{ $t('findAuPair') }}</b-button>
       </div>
     </div>
   </template>

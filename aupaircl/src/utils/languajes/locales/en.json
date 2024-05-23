@@ -1,17 +1,84 @@
-  {
-    "home": "Home",
-    "findFamily": "Find a Family",
-    "glossary": "Glossary",
-    "auPairStories": "Au Pair Stories",
-    "families": "For Families",
-    "aboutUs": "About Us",
-    "howWeWork": "How We Work",
-    "faq": "Frequently Asked Questions",
-    "references": "References",
-    "contact": "Contact",
-    "login": "Login",
-    "language": "Language",
-    "spanish": "Spanish",
-    "english": "English"
-  }
+ {
+"//Header//":"",  
+  
+"home": "Home",
+"findFamily": "Find a Family",
+"glossary": "Glossary",
+"auPairStories": "Au Pair Stories",
+"families": "For Families",
+"aboutUs": "About Us",
+"howWeWork": "How We Work",
+"faq": "Frequently Asked Questions",
+"references": "References",
+"contact": "Contact",
+"login": "Login",
+"language": "Language",
+"spanish": "Spanish",
+"english": "English",
+
+"//FeatureHero": "",
+
+"welcomeAuPairCl": "Welcome to AuPairClick",
+"findAuPairOrFamily": "Find au pair or Familiy",
+"findAFamily": "Find a Family",
+"findAuPair": "Find an Au pair",
+
+"//FeatureContacts": "",
+
+"questions": "¿Do you have any question?",
+"teamAupaircl": "The AuPairClick team will be happy to help you.",
+"teamContacts": " Contact us by phone or email.",
+"btnContact": "Contact",
+"filosofy": "Philosophy of the au pair program",
+"requirementsQuestion": "¿What is necessary to take into account during the au pair stay?",
+"aspectsQuestion" : "Find out about the basic aspects of the stay so that both parties benefit and are enriched by the experience.",
+
+"//FeatureFuction": "",
+
+"howFuction": "How does it work?",
+"createProfile": "Create a profile",
+"search": "Search",
+"itContact":"Keep in touch",
+"messagesExchange":"Exchange Messages",
+"signature":"Sign a Contract",
+
+"//FeatureIdea":"",
+
+"weIdea": "Our basic idea of ​​au pair",
+"whatIdea": "What is really involved in the relationship of the au pair-host family?",
+"explication": "We explain the essential aspects of this winning-winning combination and its special benefits for au pair couples and host families.",
+
+"//FeatureSection": "",
+
+"meetAupairTitle": "Encuentra Au Pairs",
+"conectAuPair":"Conecta con au pairs de todo el mundo y vive una experiencia intercultural única.",
+"familyTitle": "Familias Anfitrionas",
+"searchFamily":"Busca familias anfitrionas que te den la bienvenida y te ofrezcan un hogar en el extranjero.",
+"countryTitle":"21 Paises",
+"discoverPrograms":"Descubre programas de au pair en 21 países diferentes y encuentra el destino perfecto para ti.",
+"whatGet":"What do you get?",
+"selectionBig":"The largest selection of au pairs and families on the Internet.",
+"contactRegister":"Immediate contact after registration.",
+"searchEasy":"Easy search based on your own preferences.",
+"environmentWeb":"A web environment managed securely by the market leader.",
+"informationCompleter":"Complete information on 21 host countries.",
+"supportCustomer": "Multilingual customer support in all subjects.",
+"clientsAbout":"More than 2.4 million customers have made AuPairWorld the most popular and most reliable au pair agency on the Internet.",
+
+"//Footer" : "",
+
+"contactUs": "Contact Us",
+"telephone": "+52 123 456 789",
+"email":"aupairmexicoti@gmail.com",
+"address": " Antinea #4 Col. Delicias Cuernavaca, Morelos México",
+
+"countrySub": "Info Host Countries",
+"followMe":"Follow Us",
+"navigationFast":"Quick navigation",
+"aboutMe":"About Us",
+"reference":"References",
+"copyright":" AuPairClick - All rights reserved",
+
+"namePrincipal": "AuPair México"
+}
   

@@ -4,18 +4,18 @@
         <b-row>
           <b-col md="4" class="text-center mb-4 mb-md-0">
             <b-icon icon="people" variant="primary" font-scale="3"></b-icon>
-            <h4>Encuentra Au Pairs</h4>
-            <p>Conecta con au pairs de todo el mundo y vive una experiencia intercultural única.</p>
+            <h4>{{ $t('meetAupairTitle') }}</h4>
+            <p>{{ $t('conectAuPair') }}</p>
           </b-col>
           <b-col md="4" class="text-center mb-4 mb-md-0">
             <b-icon icon="house-door" variant="primary" font-scale="3"></b-icon>
-            <h4>Familias Anfitrionas</h4>
-            <p>Busca familias anfitrionas que te den la bienvenida y te ofrezcan un hogar en el extranjero.</p>
+            <h4>{{ $t('familyTitle') }}</h4>
+            <p>{{ $t('searchFamily') }}</p>
           </b-col>
           <b-col md="4" class="text-center">
             <b-icon icon="globe" variant="primary" font-scale="3"></b-icon>
-            <h4>21 Países</h4>
-            <p>Descubre programas de au pair en 21 países diferentes y encuentra el destino perfecto para ti.</p>
+            <h4>{{ $t('countryTitle') }}</h4>
+            <p>{{ $t('discoverPrograms') }}</p>
           </b-col>
         </b-row>
       </section>
@@ -23,21 +23,21 @@
       <b-container>
         <b-row class="features-section-b mt-3">
           <b-col cols="12" class="mt-3">
-            <strong style="font-size: 36px;" data-aos="fade-up">¿Qué obtienes?</strong>
+            <strong style="font-size: 36px;" data-aos="fade-up">{{ $t('whatGet') }}</strong>
           </b-col>
           <b-col md="6" class="mt-3 aos-animate aos-init" data-aos="fade-rigth">
             <ul class="mt-3 nav flex-column">
               <li class="listicon d-flex"> 
                 <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">La selección más grande de au pairs y familias de internet</p>
+                <p class="ms-3">{{$t('selectionBig')}}</p>
               </li>
               <li class="listicon d-flex">
                 <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">Contacto inmediato después del registro</p>
+                <p class="ms-3">{{ $t('contactRegister')}}</p>
               </li>
               <li class="listicon d-flex">
                 <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">Búsqueda fácil basada en sus propias preferencias</p>
+                <p class="ms-3">{{ $t('searchEasy') }}</p>
               </li>
             </ul>
           </b-col>
@@ -45,15 +45,15 @@
             <ul class="mt-3 nav flex-column">
               <li class="listicon d-flex"> 
                 <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">La selección más grande de au pairs y familias de internet</p>
+                <p class="ms-3">{{ $t('environmentWeb') }}</p>
               </li>
               <li class="listicon d-flex">
                 <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">Contacto inmediato después del registro</p>
+                <p class="ms-3">{{ $t('informationComplete') }}</p>
               </li>
               <li class="listicon d-flex">
                 <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">Búsqueda fácil basada en sus propias preferencias</p>
+                <p class="ms-3">{{ $t('supportCustomer') }}</p>
               </li>
             </ul>
           </b-col>
@@ -63,8 +63,7 @@
       <b-row class="mt-3 mb-3 features-section-b">
         <b-col>
           <b-card border-variant="light"data-aos="fade-up"  class="shadow-sm text-center aos-init aos-animate">
-            Más de 2,4 millones de clientes han hecho AuPairClick la agencia de au pair más popular y
-            más confiable en Internet.
+            {{$t('clientsAbout')}}
           </b-card>
         </b-col>
       </b-row>

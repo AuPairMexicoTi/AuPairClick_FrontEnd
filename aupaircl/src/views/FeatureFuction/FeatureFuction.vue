@@ -2,13 +2,13 @@
     <div class="mt-3">
       <section class="features-section-g">
         <b-container>
-          <strong style="font-size: 36px;" data-aos="fade-up">¿Cómo funciona?</strong>
+          <strong style="font-size: 36px;" data-aos="fade-up">{{ $t('howFuction') }}</strong>
           <b-row class="py-5 my-5 justify-content-center" data-aos="fade-up">
             <b-col xs="6" sm="4" md="2" class="mt-3 text-center">
               <div>
                 <p class="numbers"><strong>1</strong></p>
                 <div class="morad mt-3">
-                  <strong>Crear perfil</strong>
+                  <strong>{{ $t('createProfile') }}</strong>
                 </div>
               </div>
             </b-col>
@@ -16,7 +16,7 @@
               <div>
                 <p class="numbers"><strong>2</strong></p>
                 <div class="morad mt-3">
-                  <strong>Buscar</strong>
+                  <strong>{{ $t('search') }}</strong>
                 </div>
               </div>
             </b-col>
@@ -24,7 +24,7 @@
               <div>
                 <p class="numbers"><strong>3</strong></p>
                 <div class="morad mt-3">
-                  <strong>Estar en contacto</strong>
+                  <strong>{{ $t('itContact') }}</strong>
                 </div>
               </div>
             </b-col>
@@ -32,7 +32,7 @@
               <div>
                 <p class="numbers"><strong>4</strong></p>
                 <div class="morad mt-3">
-                  <strong>Mensajes de intercambio</strong>
+                  <strong>{{ $t('messagesExchange') }}</strong>
                 </div>
               </div>
             </b-col>
@@ -40,7 +40,7 @@
               <div>
                 <p class="numbers"><strong>5</strong></p>
                 <div class="morad mt-3">
-                  <strong>Firmar un contrato</strong>
+                  <strong>{{ $t('signature') }}</strong>
                 </div>
               </div>
             </b-col>

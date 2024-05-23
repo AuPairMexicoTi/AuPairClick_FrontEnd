@@ -22,7 +22,7 @@ const messages = {
   es: ES
 }
 
-const savedLanguage = localStorage.getItem('language') || 'es';
+  const savedLanguage = localStorage.getItem('language') || 'es';
 
 const i18n = new VueI18n({
   locale: savedLanguage,

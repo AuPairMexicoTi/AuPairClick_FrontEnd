@@ -4,23 +4,24 @@
 
       <!-- Contact Section -->
       <b-col class="mt-3" cols="12" sm="6" md="4">
-        <h5>Contáctanos</h5>
+        <h5>{{ $t('contactUs') }}</h5>
         <ul class="nav flex-column">
           <li class="nav-item mt-2">
             <a class="nav-link p-0 text-body-secondary" href="tel:+52123456789">
-              <b-icon icon="telephone-fill" /> +52 123 456 789
+              <b-icon icon="telephone-fill" />
+              {{ $t('telephone') }}
             </a>
           </li>
           <li class="nav-item mt-2">
             <a class="nav-link p-0 text-body-secondary" href="mailto:aupairmexicoti@gmail.com">
-              <b-icon icon="envelope-fill" /> aupairmexicoti@gmail.com
+              <b-icon icon="envelope-fill" />
+              {{ $t('email') }}
             </a>
           </li>
           <li class="nav-item mt-2">
             <a class="nav-link p-0 text-body-secondary" href="https://goo.gl/maps/CHubUHVXRNxSMuCh8">
               <b-icon icon="geo-fill" />
-              Antinea #4 Col. Delicias Cuernavaca, Morelos
-              México
+              {{ $t('address') }}
             </a>
           </li>
         </ul>
@@ -28,7 +29,7 @@
 
       <!-- Info Countries Section -->
       <b-col class="mt-3" cols="12" sm="6" md="2">
-        <h5>Países</h5>
+        <h5>{{ $t('countrySub') }}</h5>
         <b-row>
           <b-col cols="6">
             <ul class="nav flex-column">
@@ -100,45 +101,47 @@
 
       <!-- Social Media Section -->
       <b-col class="mt-3" cols="12" sm="6" md="3">
-        <h5>Síguenos</h5>
+        <h5>{{ $t('followMe') }}</h5>
         <ul class="nav flex-column">
           <li class="nav-item mt-2">
             <a href="#" class="nav-link p-0 text-body-secondary">
-              <b-icon icon="facebook" /> AuPair México
+              <b-icon icon="facebook" />{{ $t('namePrincipal') }}
             </a>
           </li>
           <li class="nav-item mt-2">
             <a href="#" class="nav-link p-0 text-body-secondary">
-              <b-icon icon="instagram" /> AuPair México
+              <b-icon icon="instagram" /> {{ $t('namePrincipal') }}
             </a>
           </li>
         </ul>
       </b-col>
       <!-- Navigation fast-->
       <b-col class="mt-3" cols="12" sm="6" md="2">
-        <h5>Navegación rápida</h5>
+        <h5>{{ $t('navigationFast') }}</h5>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link p-0 text-body-secondary" href="/es/quienes-somos">Quienes somos</a>
+            <a class="nav-link p-0 text-body-secondary" href="/es/quienes-somos">{{ $t('aboutMe') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link p-0 text-body-secondary" href="/es/referencias">Referencias</a>
+            <a class="nav-link p-0 text-body-secondary" href="/es/referencias">{{ $t('reference') }}</a>
           </li>
         </ul>
       </b-col>
     </footer>
-    <p class="text-center">&copy; 2024 AuPairClick - Todos los derechos reservados</p>
+    <p class="text-center">&copy; 2024 {{ $t('copyright') }} </p>
   </div>
 </template>
 
 <script>
+
+
 export default {
   name: "Footer",
   data() {
     return {
       logo: "",
     };
-  }
+  },
 };
 </script>
 

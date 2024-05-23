@@ -49,7 +49,7 @@
             <router-link class="nav-link me-3" :to="{ name: '/' }">{{ $t('contact') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link me-3" :to="{ name: '/' }">{{ $t('login') }}</router-link>
+            <router-link class="nav-link me-3" :to="{ name: '/login' }">{{ $t('login') }}</router-link>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown"
