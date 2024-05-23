@@ -14,51 +14,51 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="auPairDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Para Au Pairs
+              {{ $t('families') }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="auPairDropdown">
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Página principal</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Encuentra una familia</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Glosario</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Historias de Au Pairs</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('home') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('findFamily') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('glossary') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('auPairStories') }}</router-link></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="familiesDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Para Familias
+              {{ $t('families') }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="familiesDropdown">
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Página principal</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Glosario</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('home') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('glossary') }}</router-link></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Acerca de AuPairClick
+              {{ $t('aboutUs') }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Acerca de Nosotros</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Cómo trabajamos</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Preguntas frecuentes</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">Referencias</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('aboutUs') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('howWeWork') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('faq') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('references') }}</router-link></li>
             </ul>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link me-3" :to="{ name: '/' }">Contacto</router-link>
+            <router-link class="nav-link me-3" :to="{ name: '/' }">{{ $t('contact') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link me-3" :to="{ name: '/' }">Entrar</router-link>
+            <router-link class="nav-link me-3" :to="{ name: '/' }">{{ $t('login') }}</router-link>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Idioma
+              {{ $t('language') }}
             </a>
-            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-              <li><router-link class="dropdown-item">Español</router-link></li>
-              <li><router-link class="dropdown-item">Ingles</router-link></li>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+              <li><a class="dropdown-item" href="#" @click="changeLanguage('es')">{{ $t('spanish') }}</a></li>
+              <li><a class="dropdown-item" href="#" @click="changeLanguage('en')">{{ $t('english') }}</a></li>
             </ul>
           </li>
         </ul>
@@ -75,6 +75,12 @@ export default {
       logo: "https://www.amaap.com.mx/assets/images/agencias/image001.png",
     };
   },
+  methods: {
+    changeLanguage(lang) {
+      this.$i18n.locale = lang;
+      localStorage.setItem('language', lang);
+    }
+  }
 };
 </script>
 
