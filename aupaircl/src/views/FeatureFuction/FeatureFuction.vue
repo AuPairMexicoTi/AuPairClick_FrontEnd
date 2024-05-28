@@ -62,14 +62,14 @@
     width: 35px;
     color: #fff;
     font-size: 25px;
-    background-color: #EF0082;
+    background-color: rgb(175 126 249);
     border-radius: 50%;
     box-shadow: 1px 2px 1px 1px #5D5854;
     display: inline-block;
   }
   
   .morad {
-    color: #980079 !important;
+    color:rgb(148 78 252) !important;
   }
   </style>
   
