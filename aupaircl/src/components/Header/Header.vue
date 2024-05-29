@@ -46,7 +46,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link me-3" :to="{ name: '/' }">{{ $t('contact') }}</router-link>
+            <router-link class="nav-link me-3" :to="{ name: 'contacto' }">{{ $t('contact') }}</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link me-3" :to="{ name: 'login' }">{{ $t('login') }}</router-link>

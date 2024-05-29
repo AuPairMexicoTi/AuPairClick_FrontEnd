@@ -1,5 +1,6 @@
 import Login from '../views/Login/Login.vue'
 import LandPage from '../views/LandPage/LandPage.vue'
+import Contacto from '../views/Contact/Contacto.vue'
 export default [
     {
         path: '/',
@@ -25,6 +26,16 @@ export default [
                 meta:{
                     title: 'Login',
                 }
+            },
+            {
+                
+                    path: '/contacto',
+                    name: 'contacto',
+                    component: Contacto,
+                    meta:{
+                        title: 'Contacto',
+                    }
+                
             }
         ]
     }

@@ -21,6 +21,10 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+.titleColor{
+    color:rgb(51, 1, 127);
+}
 .btnColor{
     background-color: #00aa99 !important;
     background:  #00aa99 !important;
