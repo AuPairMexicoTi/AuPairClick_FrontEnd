@@ -72,7 +72,7 @@ export default {
   name: "Header",
   data() {
     return {
-      logo: "https://www.amaap.com.mx/assets/images/agencias/image001.png",
+      logo: "https://fhweovj.stripocdn.email/content/guids/CABINET_1b64288a36c96ad48cda203d3abb3b684f230cc2a18e4f2ba8ee4884477de08c/images/marca_au_pair_click.png",
     };
   },
   methods: {
