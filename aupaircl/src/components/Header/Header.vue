@@ -14,7 +14,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="auPairDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              {{ $t('families') }}
+              {{ $t('aupairs') }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="auPairDropdown">
               <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('home') }}</router-link></li>
@@ -43,10 +43,8 @@
               <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('howWeWork') }}</router-link></li>
               <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('faq') }}</router-link></li>
               <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('references') }}</router-link></li>
+              <li><router-link class="dropdown-item" :to="{ name: 'contacto' }">{{ $t('contact') }}</router-link></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link me-3" :to="{ name: 'contacto' }">{{ $t('contact') }}</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link me-3" :to="{ name: 'login' }">{{ $t('login') }}</router-link>
@@ -87,5 +85,8 @@ export default {
 <style scoped>
 .header-fixed {
   z-index: 3;
+}
+a {
+  color: #965FFF;
 }
 </style>
