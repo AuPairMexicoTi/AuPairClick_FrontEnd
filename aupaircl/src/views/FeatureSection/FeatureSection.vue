@@ -1,88 +1,19 @@
 <template>
     <div class="mt-3">
-      <section class="features-section-g mt-3">
-        <b-row>
-          <b-col md="4" class="text-center mb-4 mb-md-0">
-            <b-icon icon="people" variant="primary" font-scale="3"></b-icon>
-            <h4>{{ $t('meetAupairTitle') }}</h4>
-            <p>{{ $t('conectAuPair') }}</p>
-          </b-col>
-          <b-col md="4" class="text-center mb-4 mb-md-0">
-            <b-icon icon="house-door" variant="primary" font-scale="3"></b-icon>
-            <h4>{{ $t('familyTitle') }}</h4>
-            <p>{{ $t('searchFamily') }}</p>
-          </b-col>
-          <b-col md="4" class="text-center">
-            <b-icon icon="globe" variant="primary" font-scale="3"></b-icon>
-            <h4>{{ $t('countryTitle') }}</h4>
-            <p>{{ $t('discoverPrograms') }}</p>
-          </b-col>
-        </b-row>
-      </section>
   
-      <b-container>
-        <b-row class="features-section-b mt-3">
-          <b-col cols="12" class="mt-3">
-            <strong style="font-size: 36px;" data-aos="fade-up">{{ $t('whatGet') }}</strong>
-          </b-col>
-          <b-col md="6" class="mt-3 aos-animate aos-init" data-aos="fade-rigth">
-            <ul class="mt-3 nav flex-column">
-              <li class="listicon d-flex"> 
-                <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">{{$t('selectionBig')}}</p>
-              </li>
-              <li class="listicon d-flex">
-                <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">{{ $t('contactRegister')}}</p>
-              </li>
-              <li class="listicon d-flex">
-                <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">{{ $t('searchEasy') }}</p>
-              </li>
-            </ul>
-          </b-col>
-          <b-col md="6" class="mt-3 aos-animate aos-init" data-aos="fade-left">
-            <ul class="mt-3 nav flex-column">
-              <li class="listicon d-flex"> 
-                <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">{{ $t('environmentWeb') }}</p>
-              </li>
-              <li class="listicon d-flex">
-                <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">{{ $t('informationComplete') }}</p>
-              </li>
-              <li class="listicon d-flex">
-                <b-icon icon="check-lg"></b-icon>
-                <p class="ms-3">{{ $t('supportCustomer') }}</p>
-              </li>
-            </ul>
-          </b-col>
-        </b-row>
-      </b-container>
-  
-      <b-row class="mt-3 mb-3 features-section-b">
-        <b-col>
-          <b-card border-variant="light"data-aos="fade-up"  class="shadow-sm text-center aos-init aos-animate">
-            {{$t('clientsAbout')}}
-          </b-card>
-        </b-col>
-      </b-row>
-  
-      <FeatureFuction />
-      <FeatureIdea />
-      <FeatureContact />
+      <FeatureCardLandPage/>
+      <FeatureCardRegister/> 
+
     </div>
   </template>
   
   <script>
-  import FeatureFuction from '../FeatureFuction/FeatureFuction.vue';
-  import FeatureIdea from '../FeatureIdea/FeatureIdea.vue';
-  import FeatureContact from '../FeatureContact/FeatureContact.vue';
+import FeatureCardLandPage from "../FeatureCardLandPage/FeatureCardLandPage.vue";
+  import FeatureCardRegister from '../FeatureCardRegisterLandPage/FeatureCardRegisterLandPage.vue';
   export default {
     components: {
-      FeatureFuction,
-      FeatureIdea,
-      FeatureContact
+      FeatureCardRegister,
+      FeatureCardLandPage
     }
   }
   </script>
