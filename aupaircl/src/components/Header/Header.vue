@@ -8,10 +8,10 @@
       <b-navbar-toggle target="navbarScroll"></b-navbar-toggle>
 
       <b-collapse id="navbarScroll" is-nav>
-        <b-navbar-nav class="ms-auto my-2 my-lg-0 navbar-nav-scroll">
+        <b-navbar-nav class="ms-auto my-2 my-lg-0 navbar-nav-scroll d-flex align-items-center">
           <b-nav-item-dropdown right no-caret>
             <template #button-content>
-             <strong class="titleColorHeader"> {{ $t('aupairs') }} </strong>
+              <strong class="titleColorHeader"> {{ $t('aupairs') }} </strong>
             </template>
             <b-dropdown-item :to="{ name: '/' }">{{ $t('home') }}</b-dropdown-item>
             <b-dropdown-item :to="{ name: '/' }">{{ $t('findFamily') }}</b-dropdown-item>
@@ -38,8 +38,10 @@
             <b-dropdown-item :to="{ name: 'contacto' }">{{ $t('contact') }}</b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <b-nav-item :to="{ name: 'login' }">
-            {{ $t('login') }}
+          <b-nav-item class="d-flex align-items-center">
+            <b-button variant="primary" shadow class="login-button" :to="{ name: 'login' }">
+              {{ $t('login') }}
+            </b-button>
           </b-nav-item>
 
           <b-nav-item-dropdown right no-caret>
@@ -73,12 +75,24 @@ export default {
 </script>
 
 <style scoped>
-
 .dropdown-menu {
   text-align: left; /* Alineación opcional para el texto en el menú desplegable */
 }
 
 a {
   color: #965FFF;
+}
+
+.login-button {
+  background-color: #6600FF !important;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #7436CC !important;
+  text-decoration: none !important;
 }
 </style>
