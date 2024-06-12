@@ -25,6 +25,9 @@
 .titleColor{
     color:rgb(51, 1, 127);
 }
+.titleColorHeader{
+    color:#965FFF;
+}
 .btnColor{
     background-color: #00aa99 !important;
     background:  #00aa99 !important;

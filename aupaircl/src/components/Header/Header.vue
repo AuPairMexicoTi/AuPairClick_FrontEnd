@@ -1,68 +1,58 @@
 <template>
-  <nav class="navbar navbar-expand-lg fixed-top navbar-light shadow bg-light">
-    <div class="container-fluid">
+  <b-navbar toggleable="lg" type="light" variant="light" fixed="top" class="shadow">
+    <b-container fluid>
       <router-link class="navbar-brand" :to="{ name: 'home' }">
         <img :src="logo" alt="Logo" width="74" />
       </router-link>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
-          <!-- Dropdowns -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="auPairDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              {{ $t('aupairs') }}
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="auPairDropdown">
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('home') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('findFamily') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('glossary') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('auPairStories') }}</router-link></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="familiesDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              {{ $t('families') }}
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="familiesDropdown">
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('home') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('glossary') }}</router-link></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              {{ $t('aboutUs') }}
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('aboutUs') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('howWeWork') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('faq') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: '/' }">{{ $t('references') }}</router-link></li>
-              <li><router-link class="dropdown-item" :to="{ name: 'contacto' }">{{ $t('contact') }}</router-link></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link me-3" :to="{ name: 'login' }">{{ $t('login') }}</router-link>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              {{ $t('language') }}
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-              <li><a class="dropdown-item" href="#" @click="changeLanguage('es')">{{ $t('spanish') }}</a></li>
-              <li><a class="dropdown-item" href="#" @click="changeLanguage('en')">{{ $t('english') }}</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+      <b-navbar-toggle target="navbarScroll"></b-navbar-toggle>
+
+      <b-collapse id="navbarScroll" is-nav>
+        <b-navbar-nav class="ms-auto my-2 my-lg-0 navbar-nav-scroll">
+          <b-nav-item-dropdown right no-caret>
+            <template #button-content>
+             <strong class="titleColorHeader"> {{ $t('aupairs') }} </strong>
+            </template>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('home') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('findFamily') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('glossary') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('auPairStories') }}</b-dropdown-item>
+          </b-nav-item-dropdown>
+
+          <b-nav-item-dropdown right no-caret>
+            <template #button-content>
+              <strong class="titleColorHeader"> {{ $t('families') }} </strong>
+            </template>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('home') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('glossary') }}</b-dropdown-item>
+          </b-nav-item-dropdown>
+
+          <b-nav-item-dropdown right no-caret>
+            <template #button-content>
+              <strong class="titleColorHeader"> {{ $t('aboutUs') }} </strong>
+            </template>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('aboutUs') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('howWeWork') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('faq') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: '/' }">{{ $t('references') }}</b-dropdown-item>
+            <b-dropdown-item :to="{ name: 'contacto' }">{{ $t('contact') }}</b-dropdown-item>
+          </b-nav-item-dropdown>
+
+          <b-nav-item :to="{ name: 'login' }">
+            {{ $t('login') }}
+          </b-nav-item>
+
+          <b-nav-item-dropdown right no-caret>
+            <template #button-content>
+              <strong class="titleColorHeader"> {{ $t('language') }} </strong>
+            </template>
+            <b-dropdown-item @click="changeLanguage('es')">{{ $t('spanish') }}</b-dropdown-item>
+            <b-dropdown-item @click="changeLanguage('en')">{{ $t('english') }}</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-container>
+  </b-navbar>
 </template>
 
 <script>
@@ -83,9 +73,11 @@ export default {
 </script>
 
 <style scoped>
-.header-fixed {
-  z-index: 3;
+
+.dropdown-menu {
+  text-align: left; /* Alineación opcional para el texto en el menú desplegable */
 }
+
 a {
   color: #965FFF;
 }

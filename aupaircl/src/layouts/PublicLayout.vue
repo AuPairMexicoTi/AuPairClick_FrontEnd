@@ -31,6 +31,8 @@ export default {
 <style scoped>
 .main-content {
   margin-top: 65px;
+  padding: 20px;
+
 }
 
 @media (max-width: 30em) {

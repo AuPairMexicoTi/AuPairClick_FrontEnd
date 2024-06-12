@@ -4,6 +4,7 @@ import AdminRouter from './AdminRouter'
 import AuPairRouter from './AuPairRouter'
 import PublicRouter from './PublicRouter'
 import FamilyRouter from './FamilyRouter'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,7 +35,8 @@ const routes = [
             })
         ]
     },
-  
+    
+ 
     {
         path: '/*',
         name: '404',
