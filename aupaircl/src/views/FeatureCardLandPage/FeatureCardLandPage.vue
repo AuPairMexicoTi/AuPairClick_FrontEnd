@@ -1,6 +1,6 @@
 <template>
-    <b-container fluid class="my-4 px-0">
-      <b-row>
+    <b-container fluid class="my-4 mt-5 px-0">
+      <b-row data-aos="fade-right">
         <b-col>
           <b-card no-body class="shadow custom-card">
             <b-row no-gutters>
@@ -11,25 +11,25 @@
                   <b-button class="b-button1">Más Información</b-button>
                 </b-card-body>
               </b-col>
-              <b-col md="5">
-                <b-img :src="imgCard1" alt="experiencia"  class="img-fluid" rounded></b-img>
+              <b-col md="4">
+                <b-img :src="imgCard1" alt="experiencia" class="img-fluid" rounded></b-img>
               </b-col>
             </b-row>
           </b-card>
         </b-col>
       </b-row>
 
-      <b-row class="mt-5">
+      <b-row class="mt-5" data-aos="fade-left">
         <b-col>
           <b-card no-body class="shadow custom-card2">
             <b-row no-gutters>
-              <b-col md="5">
-                <b-img :src="imgCard2" alt="vivencia"  class="img-fluid" rounded></b-img>
+              <b-col md="4">
+                <b-img :src="imgCard2" alt="vivencia" class="img-fluid" rounded></b-img>
               </b-col>
               <b-col md="7" class="d-flex align-items-center text-end">
                 <b-card-body class="p-5" >
-                  <h3 class="card2-title">Búsqueda personalizada</h3>
-                  <p class="card2-text">Búsqueda fácil basada en sus propias preferencias</p>
+                  <h3 class="card2-title">Decide tu mismo </h3>
+                  <p class="card2-text">La selección más grande de au pairs y de familias en internet</p>
                   <b-button class="b-button2">Más Información</b-button>
                 </b-card-body>
               </b-col>

@@ -10,7 +10,7 @@
                             <h2>{{ $t('questions') }}</h2>
                             <p>
                                 <b>{{ $t('teamAupaircl') }}</b> {{ $t('teamContacts') }}</p>
-                            <b-button variant="primary" href="/contacto">{{ $t('btnContact') }}</b-button>
+                            <b-button class="btnColor" href="/contacto">{{ $t('btnContact') }}</b-button>
                         </div>
                     </b-col>
 

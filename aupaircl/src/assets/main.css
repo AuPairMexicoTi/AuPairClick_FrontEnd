@@ -28,7 +28,25 @@
 .titleColorHeader{
     color:#965FFF;
 }
+
 .btnColor{
-    background-color: #00aa99 !important;
-    background:  #00aa99 !important;
+    background-color: #6600FF !important;
+    background:  #6600FF !important;
 }
+.btnDanger {
+    background-color: #FF4300;
+    border: none;
+  }
+  
+.btnDanger:hover {
+    background-color: #E64A19;
+  }
+  .btnBlue {
+    background-color: #00ECBB;
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btnBlue:hover {
+    background-color: #00ECBB;
+  }

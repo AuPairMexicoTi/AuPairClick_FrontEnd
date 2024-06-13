@@ -1,12 +1,12 @@
 <template>
-    <b-container fluid class="my-4">
-      <b-row>
+    <b-container fluid class="my-4 px-0 mt-5 ps-5 pe-5" data-aos="fade-up">
+      <b-row >
         <b-col md="6" class="mb-4" v-for="(card, index) in cards" :key="index">
           <b-card class="custom-card text-center">
             <h3 class="card-title">{{ card.title }}</h3>
-            <b-icon icon="geo-alt-fill"  font-scale="2"></b-icon>
+            <b-icon icon="globe" style="color: #00ECBB;" font-scale="2"></b-icon>
             <p class="card-text mt-3">{{ card.text }}</p>
-            <b-button >{{ card.buttonText }}</b-button>
+            <b-button class="btnBlue" >{{ card.buttonText }}</b-button>
           </b-card>
         </b-col>
       </b-row>
@@ -55,15 +55,6 @@
     color: #666;
   }
   
-  b-button {
-    background-color: #00ECBB;
-    border: none;
-    font-weight: bold;
-  }
-  
-  b-button:hover {
-    background-color: #00ECBB;
-  }
   
   .b-icon {
     margin-top: 1rem;
