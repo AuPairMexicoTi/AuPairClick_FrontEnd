@@ -2,7 +2,7 @@
     <b-container fluid class="my-4 px-0" data-aos="fade-up">
       <b-card no-body class="custom-card">
         <b-card-body class="text-center">
-          <h3 class="card-title">Los programas au pair por países</h3>
+          <h3 class="card-title">{{ $t('programCountries') }}</h3>
           <b-row class="mt-3">
             <b-col md="2" v-for="(country, index) in countries" :key="index" class="d-flex align-items-stretch">
               <b-card class="country-card text-white">
@@ -78,7 +78,7 @@
   
   .img-fluid {
     border-radius: 15px;
-    max-height: 100px;
+    max-height: 90px;
   }
   </style>
   

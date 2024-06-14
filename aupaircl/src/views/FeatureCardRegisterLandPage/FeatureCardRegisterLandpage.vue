@@ -1,12 +1,20 @@
 <template>
     <b-container fluid class="my-4 px-0 mt-5 ps-5 pe-5" data-aos="fade-up">
       <b-row >
-        <b-col md="6" class="mb-4" v-for="(card, index) in cards" :key="index">
+        <b-col md="6" class="mb-4" >
           <b-card class="custom-card text-center">
-            <h3 class="card-title">{{ card.title }}</h3>
+            <h3 class="card-title">{{ $t('forAuPair')}}</h3>
             <b-icon icon="globe" style="color: #00ECBB;" font-scale="2"></b-icon>
-            <p class="card-text mt-3">{{ card.text }}</p>
-            <b-button class="btnBlue" >{{ card.buttonText }}</b-button>
+            <p class="card-text mt-3">{{ $t('infoAuPair') }}</p>
+            <b-button class="btnBlue" >{{ $t('btnRegister') }}</b-button>
+          </b-card>
+        </b-col>
+        <b-col md="6" class="mb-4" >
+          <b-card class="custom-card text-center">
+            <h3 class="card-title">{{ $t('forFamily') }}</h3>
+            <b-icon icon="globe" style="color: #00ECBB;" font-scale="2"></b-icon>
+            <p class="card-text mt-3">{{ $t('infoFamily') }}</p>
+            <b-button class="btnBlue" >{{ $t('btnRegister') }}</b-button>
           </b-card>
         </b-col>
       </b-row>
@@ -18,18 +26,6 @@
     name: "CustomCard",
     data() {
       return {
-        cards: [
-          {
-            title: "Para Au Pairs",
-            text: "Vive con una familia en el país de tus sueños y ayúdalos con el cuidado de los niños. Aprende otro idioma, conoce otro país y diviértete mucho viajando.",
-            buttonText: "Regístrate"
-          },
-          {
-            title: "Para Familias",
-            text: "Vive con una familia en el país de tus sueños y ayúdalos con el cuidado de los niños. Aprende otro idioma, conoce otro país y diviértete mucho viajando.",
-            buttonText: "Regístrate"
-          }
-        ]
       };
     }
   };

@@ -6,9 +6,9 @@
             <b-row no-gutters>
               <b-col md="7" class="d-flex align-items-center text-start">
                 <b-card-body class="p-5" >
-                  <h3 class="card-title">Búsqueda personalizada</h3>
-                  <p class="card-text">Búsqueda fácil basada en sus propias preferencias</p>
-                  <b-button class="b-button1">Más Información</b-button>
+                  <h3 class="card-title">{{$t('customSearch')}}</h3>
+                  <p class="card-text">{{ $t('easySearch') }}</p>
+                  <b-button class="b-button1">{{ $t('moreInformation') }}</b-button>
                 </b-card-body>
               </b-col>
               <b-col md="4">
@@ -28,9 +28,9 @@
               </b-col>
               <b-col md="7" class="d-flex align-items-center text-end">
                 <b-card-body class="p-5" >
-                  <h3 class="card2-title">Decide tu mismo </h3>
-                  <p class="card2-text">La selección más grande de au pairs y de familias en internet</p>
-                  <b-button class="b-button2">Más Información</b-button>
+                  <h3 class="card2-title">{{ $t('decideYourself') }}</h3>
+                  <p class="card2-text">{{ $t( 'selecctionBig') }}</p>
+                  <b-button class="b-button2">{{ $t('moreInformation') }}</b-button>
                 </b-card-body>
               </b-col>
             </b-row>

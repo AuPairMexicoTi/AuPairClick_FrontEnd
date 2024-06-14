@@ -5,7 +5,7 @@
         <b-col md="6">
           <b-card no-body class="custom-card h-100">
             <b-card-body class="d-flex flex-column">
-              <h3 class="card-title">Testimonios</h3>
+              <h3 class="card-title">{{ $t('testimoniosTitle') }}</h3>
               <b-carousel
                 id="testimonials-carousel"
                 v-model="slide"
@@ -32,14 +32,14 @@
         <b-col md="6">
           <b-card no-body class="custom-card h-100">
             <b-card-body class="d-flex flex-column">
-              <h3 class="card-title text-danger">Blog</h3>
+              <h3 class="card-title text-danger">{{ $t('blog') }}</h3>
               <p class="card-text">
-                <strong>Consejos para aprovechar al máximo tu experiencia como au pair</strong>
+                <strong>{{ $t('tips') }}</strong>
               </p>
               <p class="card-text">
-                Estos 5 consejos te ayudarán a sacar el máximo partido a tu estancia au pair antes de empezarla y prepararte para todas las nuevas experiencias que están por venir cuando te vas a otro país como au pair.
+                {{ $t('tipsSubtitle') }}
               </p>
-              <b-button class="mt-auto align-self-center btnDanger">Ver Más</b-button>
+              <b-button class="mt-auto align-self-center btnDanger">{{ $t('seeMore') }}</b-button>
             </b-card-body>
           </b-card>
         </b-col>
@@ -77,14 +77,6 @@
         ]
       };
     },
-    methods: {
-      onSlideStart(slide) {
-        this.sliding = true;
-      },
-      onSlideEnd(slide) {
-        this.sliding = false;
-      }
-    }
   };
   </script>
   

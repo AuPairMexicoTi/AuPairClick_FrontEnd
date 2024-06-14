@@ -24,6 +24,36 @@
 "findAFamily": "Encontrar familia",
 "findAuPair": "Encontrar un Au Pair",
 
+
+"//FeatureCardLandpage": "",
+
+"customSearch":"Búsqueda personalizada",
+"easySearch":"Búsqueda fácil basada en sus propias preferencias",
+"moreInformation":"Más Información",
+"decideYourself":"Decide tu mismo",
+"selecctionBig":"La selección más grande de au pairs y de familias en internet",
+
+"//FeatureCardRegisterLandPage":"",
+
+"forAuPair":"Para Au Pairs",
+"forFamily":"Para familias",
+"infoAuPair":"Vive con una familia en el país de tus sueños y ayúdalos con el cuidado de los niños. Aprende otro idioma, conoce otro país y diviértete mucho viajando",
+"infoFamily":"Vive con una familia en el país de tus sueños y ayúdalos con el cuidado de los niños. Aprende otro idioma, conoce otro país y diviértete mucho viajando",
+"btnRegister":"Registrate",
+
+"//FeatureCountries":"",
+
+"programCountries":"Los programas au pair por países",
+
+"//FeatureTestimonios":"",
+
+"testimoniosTitle":"Testimonios",
+"blog":"Blog",
+"tips":"Consejos para aprovechar al máximo tu experiencia como au pair",
+"tipsSubtitle":"Estos 5 consejos te ayudarán a sacar el máximo partido a tu estancia au pair antes de empezarla y prepararte para todas las nuevas experiencias que están por venir cuando te vas a otro país como au pair",
+"seeMore":"Ver más",
+
+
 "//FeatureContacts": "",
 
 "questions": "¿Tienes alguna pregunta?",
@@ -34,37 +64,6 @@
 "requirementsQuestion": "Qué es necesario tener en cuenta durante la estancia au pair?",
 "aspectsQuestion" : " Infórmate sobre los aspectos básicos de la estancia para que ambas partes se beneficien y se enriquezcan de la experiencia.",
 
-"//FeatureFuction": "",
-
-"howFuction": "¿Como funciona?",
-"createProfile": "Crear un Perfil",
-"search": "Buscar",
-"itContact":"Estar en contacto",
-"messagesInterchange":"Mensajes de intercambio",
-"signature":"Firma un contrato",
-
-"//FeatureIdea":"",
-
-"weIdea": "Nuestra idea básica de au pair",
-"whatIdea": "¿Qué está implicado realmente en la relación de la familia au pair-host?",
-"explication": "Explicamos los aspectos esenciales de esta combinación ganadora-ganadora y sus beneficios especiales para parejas de au pair y familias de acogida.",
-
-"//FeatureSection": "",
-
-"meetAupairTitle": "Encuentra Au Pairs",
-"conectAuPair":"Conecta con au pairs de todo el mundo y vive una experiencia intercultural única.",
-"familyTitle": "Familias Anfitrionas",
-"searchFamily":"Busca familias anfitrionas que te den la bienvenida y te ofrezcan un hogar en el extranjero.",
-"countryTitle":"21 Paises",
-"discoverPrograms":"Descubre programas de au pair en 21 países diferentes y encuentra el destino perfecto para ti.",
-"whatGet":"¿Qué obtienes?",
-"selectionBig":"La selección más grande de au pairs y familias de internet",
-"contactRegister":"Contacto inmediato después del registro",
-"searchEasy":"Búsqueda fácil basada en sus propias preferencias",
-"environmentWeb":"Un entorno web gestionado de forma segura por el líder del mercado.",
-"informationCompleter":"Información completa sobre 21 paises",
-"supportCustomer": "Atención al cliente multilingüe en todos los temas.",
-"clientsAbout":" Más de 2,4 millones de clientes han hecho AuPairClick la agencia de au pair más popular y más confiable en Internet.",
 
 "//Footer" : "",
 
