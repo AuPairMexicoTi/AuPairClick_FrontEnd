@@ -70,8 +70,8 @@ export default {
     try {
       const response = await authService.register(this.signUpForm.username,this.signUpForm.email,this.signUpForm.password,this.signUpForm.isType);
       console.log(response)
-    }catch (e) {
-      console.log('Algo sucedio al registrar' + e)
+    }catch (error) {
+      console.log('Algo sucedio al registrar' + error)
     }
     },
    async onSignIn() {
