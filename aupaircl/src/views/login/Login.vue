@@ -1,319 +1,283 @@
 <template>
-  <div  data-aos="fade-up" class="auth-wrapper">
-    <div class="auth-container" :class="{ 'right-panel-active': isRegistering }">
-      <!-- Formulario de Registro -->
-      <div class="form-container sign-up-container">
-        <b-card class="auth-card">
-          <h2 class="title">Crear Cuenta</h2>
-          <b-form @submit.prevent="onRegisterSubmit">
-            <b-form-group label-for="register-first-name">
-              <b-form-input
-                id="register-first-name"
-                v-model="register.firstName"
-                type="text"
-                required
-                placeholder="Nombre"
-              ></b-form-input>
-            </b-form-group>
-            <b-form-group label-for="register-last-name">
-              <b-form-input
-                id="register-last-name"
-                v-model="register.lastName"
-                type="text"
-                required
-                placeholder="Apellido"
-              ></b-form-input>
-            </b-form-group>
-            <b-form-group  label-for="register-email">
-              <b-form-input
-                id="register-email"
-                v-model="register.email"
-                type="email"
-                required
-                placeholder="Correo Electrónico"
-              ></b-form-input>
-            </b-form-group>
-            <b-form-group label-for="register-password">
-              <b-form-input
-                id="register-password"
-                v-model="register.password"
-                type="password"
-                required
-                placeholder="Contraseña"
-              ></b-form-input>
-            </b-form-group>
-            <b-button type="submit" class="btnColor w-100">Registrarse</b-button>
-          </b-form>
-        </b-card>
-      </div>
-
-      <!-- Formulario de Login -->
-      <div class="form-container sign-in-container">
-        <b-card class="auth-card">
-          <h2 class="title">Iniciar Sesión</h2>
-          <b-form @submit.prevent="onLoginSubmit">
-            <b-form-group label-for="login-email">
-              <b-form-input
-                id="login-email"
-                v-model="login.email"
-                type="email"
-                required
-                placeholder="Correo Electrónico"
-              ></b-form-input>
-            </b-form-group>
-            <b-form-group  label-for="login-password">
-              <b-form-input
-                id="login-password"
-                v-model="login.password"
-                type="password"
-                required
-                placeholder="Contraseña"
-              ></b-form-input>
-            </b-form-group>
-            <b-button type="submit" class="btnColor w-100">Iniciar Sesión</b-button>
-          </b-form>
-        </b-card>
-      </div>
-
-      <!-- Panel Izquierdo -->
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
-            <h1 class="overlay-title">{{ !isRegistering ? '¡Hola, Amigo!':'¡Bienvenido de Nuevo!' }}</h1>
-            <p class="overlay-text">{{ !isRegistering ?  'Introduce tus datos personales y comienza tu viaje con nosotros':'Para mantenerse conectado con nosotros, por favor inicie sesión con su información personal' }}</p>
-            <b-button variant="light" @click="toggleForm">{{ isRegistering ? 'Iniciar Sesión' : 'Registrarse' }}</b-button>
-          </div>
-          <div class="overlay-panel overlay-right">
-            <h1 class="overlay-title">{{ isRegistering ?  '¡Hola, Amigo!':'¡Bienvenido de Nuevo!' }}</h1>
-            <p class="overlay-text">{{ isRegistering ? 'Introduce tus datos personales y comienza tu viaje con nosotros ': 'Para mantenerse conectado con nosotros, por favor inicie sesión con su información personal' }}</p>
-            <b-button variant="light" @click="toggleForm">{{ isRegistering ? 'Iniciar Sesión' : 'Registrarse' }}</b-button>
-          </div>
+  <div class="pt-5 pb-5">
+  <div class="container" :class="{ active: isActive }" id="container">
+    <div class="form-container sign-up">
+      <b-form @submit.prevent="onSignUp">
+        <h1>{{ $t('createAccount') }}</h1>
+        <!-- <div class="social-icons">
+          <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span> -->
+        <b-form-input type="text" placeholder="Username" v-model="signUpForm.username" required></b-form-input>
+        <b-form-input type="email" placeholder="Email" v-model="signUpForm.email" required></b-form-input>
+        <b-form-input type="password" placeholder="Password" v-model="signUpForm.password" required></b-form-input>
+        <b-button type="submit">{{ $t('signUp') }}</b-button>
+      </b-form>
+    </div>
+    <div class="form-container sign-in">
+      <b-form @submit.prevent="onSignIn">
+        <h1>{{ $t('signIn') }}</h1>
+        <b-form-input type="email" placeholder="Email" v-model="signInForm.email" required></b-form-input>
+        <b-form-input type="password" placeholder="Password" v-model="signInForm.password" required></b-form-input>
+        <a href="#">{{ $t('forgotPassword') }}</a>
+        <b-button type="submit">{{ $t('signIn') }}</b-button>
+      </b-form>
+    </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>{{ $t('welcomeBack') }}</h1>
+          <p>{{ $t('enterPersonalDetails') }}</p>
+          <b-button class="hidden" id="login" @click="toggleForm(false)">{{ $t('signIn') }}</b-button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>{{ $t('helloFriend') }}</h1>
+          <p>{{ $t('registerPersonalDetails') }}</p>
+          <b-button class="hidden" id="register" @click="toggleForm(true)">{{ $t('signUp') }}</b-button>
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
+import authService from '../../services/auth.services'
 export default {
   data() {
     return {
-      isRegistering: false,
-      login: {
+      isActive: false,
+      signUpForm: {
+        username: '',
         email: '',
         password: '',
+        isType:'aupair'
       },
-      register: {
-        firstName: '',
-        lastName: '',
+      signInForm: {
         email: '',
         password: '',
       },
     };
   },
   methods: {
-    toggleForm() {
-      this.isRegistering = !this.isRegistering;
+    toggleForm(isActive) {
+      this.isActive = isActive;
     },
-    onLoginSubmit() {
-      // Implementar lógica de autenticación aquí
-      console.log('Login:', this.login);
+    async onSignUp() {
+    try {
+      const response = await authService.register(this.signUpForm.username,this.signUpForm.email,this.signUpForm.password,this.signUpForm.isType);
+      console.log(response)
+    }catch (e) {
+      console.log('Algo sucedio al registrar' + e)
+    }
     },
-    onRegisterSubmit() {
-      // Implementar lógica de registro aquí
-      console.log('Register:', this.register);
+   async onSignIn() {
+    try {
+      const {data,statusCode} = await authService.login(this.signInForm.email,this.signInForm.password);
+      console.log(data)
+    } catch (error) {
+      console.log('Algo sucedio al iniciar sesión' + error)
+    }
     },
   },
 };
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-.auth-wrapper {
-  background: #f6f5f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.auth-container {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+.container {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
-  width: 900px;
+  width: 768px;
   max-width: 100%;
-  min-height: 550px;
-  transition: all 0.6s ease-in-out;
+  min-height: 480px;
 }
 
-.auth-card {
-  background: none;
-  border: none;
-}
-
-h1, h2 {
-  font-weight: bold;
-  margin: 0;
-}
-
-h2 {
-  margin-bottom: 1rem;
-  color: #00aa99;
-  text-align: center;
-}
-
-p {
+.container p {
   font-size: 14px;
-  font-weight: 100;
   line-height: 20px;
-  letter-spacing: 0.5px;
-  margin: 20px 0 30px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
 }
 
-b-button {
-  border-radius: 20px;
-  border: 1px solid #fff;
-  background: #00aa99;
+.container span {
+  font-size: 12px;
+}
+
+.container a {
+  color: #333;
+  font-size: 13px;
+  text-decoration: none;
+  margin: 15px 0 10px;
+}
+
+.container button {
+  background-color: #512da8;
   color: #fff;
   font-size: 12px;
-  font-weight: bold;
-  padding: 12px 45px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-b-button:hover {
-  background: #008f86;
+.container button.hidden {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.container form {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+.container input {
+  background-color: #eee;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
 }
 
 .form-container {
   position: absolute;
   top: 0;
   height: 100%;
-  width: 50%;
   transition: all 0.6s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.sign-in-container {
+.sign-in {
   left: 0;
+  width: 50%;
   z-index: 2;
 }
 
-.sign-up-container {
-  left: 50%;
+.container.active .sign-in {
+  transform: translateX(100%);
+}
+
+.sign-up {
+  left: 0;
+  width: 50%;
   opacity: 0;
   z-index: 1;
 }
 
-.right-panel-active .sign-in-container {
-  transform: translateX(-100%);
-}
-
-.right-panel-active .sign-up-container {
-  transform: translateX(0);
+.container.active .sign-up {
+  transform: translateX(100%);
   opacity: 1;
   z-index: 5;
-  animation: show 0.6s;
+  animation: move 0.6s;
 }
 
-.overlay-container {
+@keyframes move {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  border: 1px solid #ccc;
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+}
+
+.toggle-container {
   position: absolute;
   top: 0;
   left: 50%;
   width: 50%;
   height: 100%;
   overflow: hidden;
-  transition: transform 0.6s ease-in-out;
-  z-index: 100;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
 }
 
-.overlay {
-  background: #00aa99;
-  background: -webkit-linear-gradient(to right, #00aa99, #00aa99);
-  background: linear-gradient(to right, #00aa99, #00aa99);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0;
-  color: #ffffff;
+.container.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  background-color: #512da8;
+  height: 100%;
+  background: linear-gradient(to right, #5c6bc0, #512da8);
+  color: #fff;
   position: relative;
   left: -100%;
   height: 100%;
   width: 200%;
   transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
-.right-panel-active .overlay-container {
-  transform: translateX(-100%);
+.container.active .toggle {
+  transform: translateX(50%);
 }
 
-.overlay-panel {
+.toggle-panel {
   position: absolute;
+  width: 50%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 40px;
+  padding: 0 30px;
   text-align: center;
   top: 0;
-  height: 100%;
-  width: 50%;
   transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
-.overlay-left {
-  transform: translateX(-20%);
+.toggle-left {
+  transform: translateX(-200%);
 }
 
-.right-panel-active .overlay-left {
+.container.active .toggle-left {
   transform: translateX(0);
 }
 
-.overlay-right {
+.toggle-right {
   right: 0;
   transform: translateX(0);
 }
 
-.right-panel-active .overlay-right {
-  transform: translateX(5%);
-}
-
-@keyframes show {
-  0%, 49.99% {
-    opacity: 0;
-    z-index: 1;
-  }
-  50%, 100% {
-    opacity: 1;
-    z-index: 5;
-  }
-}
-
-.overlay-title {
-  font-size: 2rem;
-  color: #ffffff;
-}
-
-.overlay-text {
-  font-size: 1rem;
-  font-weight: 300;
-  margin: 20px 0;
-  color: #ffffff;
-  text-align: center;
-}
-
-.title {
-  font-size: 2rem;
-  color: #00aa99;
-  text-align: center;
+.container.active .toggle-right {
+  transform: translateX(200%);
 }
 </style>
