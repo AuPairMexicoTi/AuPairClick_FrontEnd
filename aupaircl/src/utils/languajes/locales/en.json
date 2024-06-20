@@ -81,6 +81,17 @@
 "reference":"References",
 "copyright":" AuPairClick - All rights reserved",
 
-"namePrincipal": "AuPair México"
+"namePrincipal": "AuPair México",
+
+"//Login page":"",
+
+"createAccount": "Create Account",
+"signUp": "Sign up",
+"signIn":"Sign In",
+"forgotPassword":"Forgot your password?",
+"welcomeBack": "Welcome back!",
+"helloFriend": "Hello, Friend!",
+"enterPersonalDetails": "Ingrese sus datos personales para utilizar todas las funciones del sitio",
+"registerPersonalDetails": "Regístrese con sus datos personales para utilizar todas las funciones del sitio"
 }
   
