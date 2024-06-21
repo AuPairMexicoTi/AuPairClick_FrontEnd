@@ -32,6 +32,7 @@
 .btnColor{
     background-color: #6600FF !important;
     background:  #6600FF !important;
+    border: none;
 }
 .btnDanger {
     background-color: #FF4300;
