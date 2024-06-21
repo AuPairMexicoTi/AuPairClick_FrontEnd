@@ -5,7 +5,7 @@
                 <b-row>
                     <!-- Tienes alguna pregunta -->
                     <b-col md="6" class="d-flex flex-column justify-content-center align-items-center"
-                        data-aos="fade-right">
+                        data-aos="fade-right"  data-aos-duration="1500">
                         <div class="question-card p-4 text-center">
                             <h2>{{ $t('questions') }}</h2>
                             <p>
@@ -16,7 +16,7 @@
 
                     <!-- Filosofía del programa Au Pair -->
                     <b-col md="6" class="d-flex flex-column justify-content-center align-items-center"
-                        data-aos="fade-left">
+                        data-aos="fade-left"  data-aos-duration="1500">
                         <div class="philosophy-card p-4 text-center">
                             <h2>{{$t('filosofy')}}</h2>
                             <strong>{{ $t('requirementsQuestion') }}</strong>

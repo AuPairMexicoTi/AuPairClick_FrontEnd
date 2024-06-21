@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="my-4 px-0">
+  <b-container data-aos="fade-up"  data-aos-duration="1500" fluid class="my-4 px-0">
     <b-row>
       <!-- Testimonios Carousel -->
       <b-col md="6">

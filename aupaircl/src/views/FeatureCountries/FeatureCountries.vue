@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid class="my-4 px-0" data-aos="fade-up">
+    <b-container fluid class="my-4 px-0" data-aos="fade-up"  data-aos-duration="1500">
       <b-card no-body class="custom-card">
         <b-card-body class="text-center">
           <h3 class="card-title">{{ $t('programCountries') }}</h3>

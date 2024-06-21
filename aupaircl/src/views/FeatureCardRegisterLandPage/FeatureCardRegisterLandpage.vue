@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid class="my-4 px-0 mt-5 ps-5 pe-5" data-aos="fade-up">
+    <b-container fluid class="my-4 px-0 mt-5 ps-5 pe-5" data-aos="fade-up"  data-aos-duration="1500">
       <b-row >
         <b-col md="6" class="mb-4" >
           <b-card class="custom-card text-center">

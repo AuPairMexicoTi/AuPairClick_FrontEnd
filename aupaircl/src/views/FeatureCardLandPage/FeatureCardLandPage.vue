@@ -1,6 +1,6 @@
 <template>
   <b-container fluid class="my-4 mt-5 px-0">
-    <b-row data-aos="fade-right">
+    <b-row data-aos="fade-right"  data-aos-duration="1500">
       <b-col>
         <b-card no-body class="shadow custom-card">
           <b-row no-gutters>
@@ -19,7 +19,7 @@
       </b-col>
     </b-row>
 
-    <b-row class="mt-5" data-aos="fade-left">
+    <b-row class="mt-5" data-aos="fade-left"  data-aos-duration="1500">
       <b-col>
         <b-card no-body class="shadow custom-card2">
           <b-row no-gutters>
