@@ -23,7 +23,7 @@
 }
 
 .titleColor{
-    color:rgb(51, 1, 127);
+    color:#6600FF   
 }
 .titleColorHeader{
     color:#965FFF;
@@ -34,6 +34,19 @@
     background:  #6600FF !important;
     border: none;
 }
+.global-button {
+    background-color: #6600FF !important;
+    color: white !important;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .global-button:hover {
+    background-color: #7436CC !important;
+    text-decoration: none !important;
+  }
 .btnDanger {
     background-color: #FF4300;
     border: none;
