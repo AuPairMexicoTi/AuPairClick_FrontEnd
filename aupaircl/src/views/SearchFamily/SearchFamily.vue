@@ -184,7 +184,6 @@ export default {
         };
         const response = await familyServices.findHostFamily(formData);
         this.families = response.data;
-        console.log(response);
       } catch (error) {
         console.log("Algo sucedió al buscar ", error);
       }
