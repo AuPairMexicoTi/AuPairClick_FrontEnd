@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5 pb-5">
+  <div class="pt-5 pb-5" data-aos="fade-up"  data-aos-duration="1500">
   <div class="container" :class="{ active: isActive }" id="container">
     <div class="form-container sign-up">
       <b-form @submit.prevent="onSignUp">

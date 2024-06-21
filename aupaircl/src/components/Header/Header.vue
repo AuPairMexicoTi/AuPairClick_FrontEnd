@@ -39,7 +39,7 @@
           </b-nav-item-dropdown>
 
           <b-nav-item class="d-flex align-items-center">
-            <b-button variant="primary" shadow class="login-button" :to="{ name: 'login' }">
+            <b-button variant="primary" shadow class="global-button" :to="{ name: 'login' }">
               {{ $t('login') }}
             </b-button>
           </b-nav-item>
@@ -83,17 +83,4 @@ a {
   color: #965FFF;
 }
 
-.login-button {
-  background-color: #6600FF !important;
-  color: white !important;
-  border: none;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
-
-.login-button:hover {
-  background-color: #7436CC !important;
-  text-decoration: none !important;
-}
 </style>
