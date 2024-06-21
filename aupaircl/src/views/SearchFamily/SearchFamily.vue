@@ -27,7 +27,7 @@
           <b-col cols="12" md="6">
             <b-form-group label="Fecha de comienzo (como muy pronto)" label-for="startMonth">
               <b-input-group>
-                <b-input-group-prepend is-text>Mes</b-input-group-prepend>
+                <b-input-group-prepend is-text>Fecha</b-input-group-prepend>
                 <b-form-select v-model="form.startMonth" :options="months" required></b-form-select>
               </b-input-group>
             </b-form-group>
@@ -35,7 +35,7 @@
           <b-col cols="12" md="6">
             <b-form-group label="Fecha de comienzo (como muy tarde)" label-for="startYear">
               <b-input-group>
-                <b-input-group-prepend is-text>Año</b-input-group-prepend>
+                <b-input-group-prepend is-text>Fecha</b-input-group-prepend>
                 <b-form-select v-model="form.startYear" :options="years" required></b-form-select>
               </b-input-group>
             </b-form-group>
