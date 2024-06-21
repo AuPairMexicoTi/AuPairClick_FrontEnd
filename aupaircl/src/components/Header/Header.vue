@@ -8,7 +8,7 @@
       <b-navbar-toggle target="navbarScroll"></b-navbar-toggle>
 
       <b-collapse id="navbarScroll" is-nav>
-        <b-navbar-nav class="ms-auto my-2 my-lg-0 navbar-nav-scroll d-flex align-items-center">
+        <b-navbar-nav class="ml-auto my-2 my-lg-0 navbar-nav-scroll d-flex align-items-center">
           <b-nav-item-dropdown right no-caret>
             <template #button-content>
               <strong class="titleColorHeader"> {{ $t('aupairs') }} </strong>
@@ -86,6 +86,7 @@ a {
 .login-button {
   background-color: #6600FF !important;
   color: white !important;
+  border: none;
   padding: 0.5rem 1rem;
   text-align: center;
   transition: background-color 0.3s ease;

@@ -128,7 +128,7 @@
         </ul>
       </b-col>
     </footer>
-    <p class="text-center">&copy; 2024 {{ $t('copyright') }} </p>
+    <p class="text-center titleColor">&copy; 2024 {{ $t('copyright') }} </p>
   </div>
 </template>
 
@@ -148,5 +148,9 @@ export default {
 <style scoped>
 footer {
   background-color: #f8f9fa;
+  color: #6600FF;
+}
+footer a{
+  color: #965FFF;
 }
 </style>

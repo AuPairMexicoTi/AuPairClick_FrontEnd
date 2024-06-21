@@ -1,6 +1,7 @@
 import Login from '../views/Login/Login.vue'
 import LandPage from '../views/LandPage/LandPage.vue'
 import Contacto from '../views/Contact/Contacto.vue'
+import SearchFamily from '../views/SearchFamily/SearchFamily.vue'
 export default [
     {
         path: '/',
@@ -36,6 +37,14 @@ export default [
                         title: 'Contacto',
                     }
                 
+            },
+            {
+                path: '/find',
+                name: 'encontrarF',
+                component: SearchFamily,
+                meta:{
+                    title: 'Encontrar F',
+                }
             }
         ]
     }
