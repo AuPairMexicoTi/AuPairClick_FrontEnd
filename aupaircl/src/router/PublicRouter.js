@@ -39,7 +39,7 @@ export default [
                 
             },
             {
-                path: '/find',
+                path: '/encontrar-familia',
                 name: 'encontrarF',
                 component: SearchFamily,
                 meta:{

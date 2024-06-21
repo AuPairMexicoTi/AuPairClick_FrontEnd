@@ -1,210 +1,240 @@
 <template>
-    <div class="container my-5">
-      <h1 class="text-center mb-5">Encuentra una familia de acogida</h1>
-      <b-card class="p-4 mb-5 shadow rounded-lg">
-        <b-form @submit.prevent="onSubmit">
-          <b-row>
-            <b-col cols="12" md="6">
-              <b-form-group label="Provengo de *" label-for="country">
-                <b-form-select v-model="form.country" :options="countries" required></b-form-select>
-              </b-form-group>
-            </b-col>
-            <b-col cols="12" md="6">
-              <b-form-group label="Soy *" label-for="gender">
-                <b-form-radio-group v-model="form.gender" :options="genders" required buttons button-variant="outline-primary"></b-form-radio-group>
-              </b-form-group>
-            </b-col>
-          </b-row>
-          <b-form-group label="Me gustaría ser au pair en *" label-for="destination">
-            <b-form-select v-model="form.destination" :options="destinations" required></b-form-select>
-          </b-form-group>
-          <b-row>
-            <b-col cols="12" md="6">
-              <b-form-group label="Fecha de comienzo (como muy pronto)" label-for="startMonth">
-                <b-input-group>
-                  <b-input-group-prepend is-text>Mes</b-input-group-prepend>
-                  <b-form-select v-model="form.startMonth" :options="months" required></b-form-select>
-                </b-input-group>
-              </b-form-group>
-            </b-col>
-            <b-col cols="12" md="6">
-              <b-form-group label="Fecha de comienzo (como muy tarde)" label-for="startYear">
-                <b-input-group>
-                  <b-input-group-prepend is-text>Año</b-input-group-prepend>
-                  <b-form-select v-model="form.startYear" :options="years" required></b-form-select>
-                </b-input-group>
-              </b-form-group>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col cols="12" md="6">
-              <b-form-group label="Duración mínima de la estancia (meses)" label-for="minDuration">
-                <b-form-select v-model="form.minDuration" :options="durations" required></b-form-select>
-              </b-form-group>
-            </b-col>
-            <b-col cols="12" md="6">
-              <b-form-group label="Duración máxima de la estancia (meses)" label-for="maxDuration">
-                <b-form-select v-model="form.maxDuration" :options="durations" required></b-form-select>
-              </b-form-group>
-            </b-col>
-          </b-row>
-          <b-button type="submit" variant="primary" >Buscar</b-button>
-        </b-form>
-      </b-card>
-  
-      <div v-if="families.length" class="mt-4">
-        <h4 class="text-center mb-4">{{ families.length }} familias de {{ totalFamilies }} encajan con lo que buscas</h4>
+  <div class="container my-5" data-aos="fade-up" data-aos-duration="1500">
+    <h1 class="text-center titleColor mb-5">Encuentra una familia de acogida</h1>
+    <b-card class="p-2 mb-5 shadow custom-card">
+      <b-form @submit.prevent="onSubmit">
         <b-row>
-          <b-col v-for="family in families" :key="family.id" cols="12" md="6" lg="4">
-            <b-card
-              class="mb-4 shadow-sm rounded-lg"
-              :title="family.name"
-              :img-src="family.img"
-              img-alt="Family Image"
-              img-top
-            >
-              <b-card-text>
-                <p><strong>Ubicación:</strong> {{ family.location }}</p>
-                <p><strong>Hijos:</strong> {{ family.children }}</p>
-                <p><strong>Comienzo:</strong> {{ family.start }}</p>
-                <p><strong>Duración:</strong> {{ family.duration }}</p>
-                <p>{{ family.description }}</p>
-              </b-card-text>
-            </b-card>
+          <b-col cols="12" md="6">
+            <b-form-group label="Provengo de *" label-for="country">
+              <b-form-select v-model="form.country" :options="countries" required></b-form-select>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="6">
+            <b-form-group label="Soy *" label-for="gender">
+              <b-form-radio-group v-model="form.gender" :options="genders" required></b-form-radio-group>
+            </b-form-group>
           </b-col>
         </b-row>
-      </div>
+        <b-row class="justify-content-center">
+          <b-form-group label="Me gustaría ser au pair en *" label-for="destination">
+          <div class="destination-scroll">
+            <b-form-checkbox-group v-model="form.destination" :options="destinations" name="destination" stacked></b-form-checkbox-group>
+          </div>
+        </b-form-group>
+        </b-row>
+
+        <b-row>
+          <b-col cols="12" md="6">
+            <b-form-group label="Fecha de comienzo (como muy pronto)" label-for="startMonth">
+              <b-input-group>
+                <b-input-group-prepend is-text>Mes</b-input-group-prepend>
+                <b-form-select v-model="form.startMonth" :options="months" required></b-form-select>
+              </b-input-group>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="6">
+            <b-form-group label="Fecha de comienzo (como muy tarde)" label-for="startYear">
+              <b-input-group>
+                <b-input-group-prepend is-text>Año</b-input-group-prepend>
+                <b-form-select v-model="form.startYear" :options="years" required></b-form-select>
+              </b-input-group>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12" md="6">
+            <b-form-group label="Duración mínima de la estancia (meses)" label-for="minDuration">
+              <b-form-select v-model="form.minDuration" :options="durations" required></b-form-select>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="6">
+            <b-form-group label="Duración máxima de la estancia (meses)" label-for="maxDuration">
+              <b-form-select v-model="form.maxDuration" :options="durations" required></b-form-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-button type="submit" class="global-button">Buscar</b-button>
+      </b-form>
+    </b-card>
+
+    <div v-if="families.length" class="mt-4">
+      <h4 class="text-center mb-4">{{ families.length }} familias de {{ totalFamilies }} encajan con lo que buscas</h4>
+      <b-row>
+        <b-col v-for="family in families" :key="family.id" cols="12" md="6" lg="4">
+          <b-card class="mb-4 shadow-sm rounded-lg" :title="family.nameHost" :img-src="family.image" img-alt="Family Image" img-top>
+            <b-card-text>
+              <p><strong>Ubicación:</strong> {{ family.location }}</p>
+              <p><strong>Hijos:</strong> {{ family.numberOfChildren }}</p>
+              <p><strong>Comienzo:</strong> {{ family.searchFrom }} - {{ family.searchTo }}</p>
+              <p><strong>Duración:</strong> {{ family.minStayMonths }} - {{ family.maxStayMonths }} meses</p>
+              <p>{{ family.description }}</p>
+            </b-card-text>
+          </b-card>
+        </b-col>
+      </b-row>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        form: {
-          country: '',
-          gender: 'una chica au pair',
-          destination: [],
-          startMonth: '2024/08',
-          startYear: '2024/12',
-          minDuration: 12,
-          maxDuration: 18,
-        },
-        countries: [
-          { value: null, text: 'Selecciona un país' },
-          { value: 'Austria', text: 'Austria' },
-          { value: 'Germany', text: 'Alemania' },
-          { value: 'France', text: 'Francia' },
-          { value: 'Spain', text: 'España' },
-          { value: 'Italy', text: 'Italia' }
-        ],
-        genders: [
-          { text: 'una chica au pair', value: 'una chica au pair' },
-          { text: 'un chico au pair', value: 'un chico au pair' }
-        ],
-        destinations: [
-          { value: null, text: 'Selecciona un país' },
-          { value: 'Albania', text: 'Albania' },
-          { value: 'Alemania', text: 'Alemania' },
-          { value: 'Argelia', text: 'Argelia' },
-          { value: 'Argentina', text: 'Argentina' },
-          { value: 'Australia', text: 'Australia' }
-        ],
-        months: [
-          { value: '2024/08', text: 'Agosto 2024' },
-          { value: '2024/09', text: 'Septiembre 2024' },
-          { value: '2024/10', text: 'Octubre 2024' },
-          { value: '2024/11', text: 'Noviembre 2024' },
-          { value: '2024/12', text: 'Diciembre 2024' }
-        ],
-        years: [
-          { value: '2024', text: '2024' },
-          { value: '2025', text: '2025' }
-        ],
-        durations: Array.from({ length: 24 }, (_, i) => ({ value: i + 1, text: `${i + 1} meses` })),
-        families: [],
-        totalFamilies: 8477,
-      };
+  </div>
+</template>
+
+<script>
+import familyServices from '../../services/Family/family.services';
+
+export default {
+  data() {
+    return {
+      form: {
+        country: '',
+        gender: 'una chica au pair',
+        destination: [], 
+        startMonth: '',
+        startYear: '',
+        minDuration: 12,
+        maxDuration: 18,
+      },
+      countries: [
+        { value: null, text: 'Selecciona un país' },
+        { value: 'Austria', text: 'Austria' },
+        { value: 'Germany', text: 'Alemania' },
+        { value: 'France', text: 'Francia' },
+        { value: 'Spain', text: 'España' },
+        { value: 'Italy', text: 'Italia' },
+        { value: 'Mexico', text: 'Mexico' }
+
+      ],
+      genders: [
+        { text: 'una chica au pair', value: 'Femenino' },
+        { text: 'un chico au pair', value: 'Masculino' }
+      ],
+      destinations: [
+        { value: 'Albania', text: 'Albania' },
+        { value: 'Alemania', text: 'Alemania' },
+        { value: 'Argelia', text: 'Argelia' },
+        { value: 'Argentina', text: 'Argentina' },
+        { value: 'Australia', text: 'Australia' },
+        { value: 'Francia', text: 'Francia' },
+
+      ],
+      
+      months: [],
+      years: [],
+      durations: Array.from({ length: 24 }, (_, i) => ({ value: i + 1, text: `${i + 1} meses` })),
+      families: [],
+      totalFamilies: 8477,
+    };
+  },
+  created() {
+    this.setDates();
+  },
+  methods: {
+    setDates() {
+      const now = new Date();
+      const twoMonthsLater = new Date(now.getFullYear(), now.getMonth() + 2, 1);
+      const oneYearLater = new Date(now.getFullYear() + 1, now.getMonth(), 1);
+
+      this.form.startMonth = `${twoMonthsLater.getFullYear()}/${String(twoMonthsLater.getMonth() + 1).padStart(2, '0')}`;
+      this.form.startYear = `${oneYearLater.getFullYear()}/${String(oneYearLater.getMonth() + 1).padStart(2, '0')}`;
+
+      this.months = this.generateMonths(now, oneYearLater);
+      this.years = this.generateYears(now, oneYearLater);
     },
-    methods: {
-      onSubmit() {
-        // Simulate a search result
-        const searchResults = [
-          {
-            id: 1,
-            name: 'Jerena M.',
-            location: 'Hessen, Alemania',
-            children: '2 hijos, 1 - 5 años',
-            start: '08 / 2024 - 09 / 2024',
-            duration: '6 - 12 meses',
-            description: 'Liebes Au-pair, Wir sind eine 4-köpfige Familie und wohnen in Kassel. Wir suchen ab August 2024 ein Au-pair. Unsere Kinder heißen Emilia (5 Jahre)...',
-            img: 'https://via.placeholder.com/400x200' // Placeholder image
-          },
-          {
-            id: 2,
-            name: 'Theresa P.',
-            location: 'Bavaria, Alemania',
-            children: '2 hijos, 1 - 3 años',
-            start: '07 / 2024 - 12 / 2024',
-            duration: '3 - 24 meses',
-            description: 'Dear Aupair - we look for an Aupair that enjoys being around children, loves the outdoors, to travel and is flexible. We are a loving and very happy f...',
-            img: 'https://via.placeholder.com/400x200' // Placeholder image
-          }
-        ];
-        this.families = searchResults;
-  
-        // Prepare data for backend submission
+    generateMonths(start, end) {
+      const months = [];
+      let date = new Date(start);
+      date.setMonth(date.getMonth()); 
+      while (date <= end) {
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        months.push({ value: `${year}/${String(month).padStart(2, '0')}`, text: `${year}/${String(month).padStart(2, '0')}` });
+        date.setMonth(date.getMonth() + 1);
+      }
+      return months;
+    },
+    generateYears(start, end) {
+      const years = [];
+      let date = new Date(start);
+      date.setMonth(date.getMonth() + 2); 
+      while (date <= end) {
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        years.push({ value: `${year}/${String(month).padStart(2, '0')}`, text: `${year}/${String(month).padStart(2, '0')}` });
+        date.setMonth(date.getMonth() + 1);
+      }
+      return years;
+    },
+    async onSubmit() {
+      if (this.form.destination.length > 3) {
+        alert("Puedes seleccionar un máximo de 3 destinos.");
+        return;
+      }
+      try {
+        const [startYear, startMonth] = this.form.startMonth.split('/').map(Number);
+      const [endYear, endMonth] = this.form.startYear.split('/').map(Number);
+
+      const startDate = new Date(startYear, startMonth - 1);
+      const endDate = new Date(endYear, endMonth - 1);
+
         const formData = {
-          country: this.form.country,
+          auPairCountry: this.form.country,
           gender: this.form.gender,
-          destination: this.form.destination,
-          startMonth: this.form.startMonth,
-          startYear: this.form.startYear,
+          preferredCountryIds: this.form.destination,
+          startDate: startDate,
+          endDate: endDate,
           minDuration: this.form.minDuration,
           maxDuration: this.form.maxDuration
         };
-  
-        // Make an API call to the backend with formData
-        // For example:
-        // axios.post('/api/search-families', formData)
-        //   .then(response => {
-        //     this.families = response.data;
-        //   })
-        //   .catch(error => {
-        //     console.error('There was an error!', error);
-        //   });
+        const response = await familyServices.findHostFamily(formData);
+        this.families = response.data;
+        console.log(response);
+      } catch (error) {
+        console.log("Algo sucedió al buscar ", error);
       }
     }
-  };
-  </script>
-  
-  <style>
-  body {
-    background-color: #f8f9fa;
-    font-family: 'Arial', sans-serif;
   }
-  
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .shadow-lg {
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-  }
-  
-  .b-form-group {
-    margin-bottom: 1.5rem;
-  }
-  
-  .b-form-select,
-  .b-form-radio-group .btn {
-    border-radius: 0.25rem;
-  }
-  
-  .b-form-radio-group .btn {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  </style>
-  
+};
+</script>
+
+<style>
+body {
+  background-color: #f8f9fa;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.b-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.b-form-select,
+.b-form-radio-group .btn {
+  border-radius: 0.25rem;
+}
+
+.b-form-radio-group .btn {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.destination-scroll {
+  max-height: 75px;
+  overflow-y: auto;
+  border: 1px solid #ced4da;
+  width: 300px;
+}
+
+
+
+
+</style>
