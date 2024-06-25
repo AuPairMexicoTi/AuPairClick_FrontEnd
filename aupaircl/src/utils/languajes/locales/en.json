@@ -92,6 +92,18 @@
 "welcomeBack": "Welcome back!",
 "helloFriend": "Hello, Friend!",
 "enterPersonalDetails": "Enter your personal data to use all the functions of the site",
-"registerPersonalDetails": "Register with your personal data to use all the functions of the site"
+"registerPersonalDetails": "Register with your personal data to use all the functions of the site",
+
+"//SearchFamily":"",
+
+"findHostFamily":"Find a host family *",
+"hostLocation":"Provengo de *",
+"whatGender":"Soy *",
+"likeLocation":"Me gustaria ser au pair en *",
+"dateStart":"Fecha de comienzo (como muy pronto) *",
+"dateEnd":"Fecha de comenzo (como muy tarde) *",
+"minStay":"Duración minima de la estancia (meses) *",
+"maxStay":"Duración maxima de la estancia (meses) *",
+"searchBtn":"Search"
 }
   
