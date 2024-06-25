@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="light" variant="light" fixed="top" class="shadow">
-    <b-container fluid>
+    <b-container class="container-fluid">
       <router-link class="navbar-brand" :to="{ name: 'home' }">
         <img :src="logo" alt="Logo" width="74" />
       </router-link>
@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 .dropdown-menu {
-  text-align: left; /* Alineación opcional para el texto en el menú desplegable */
+  text-align: left; 
 }
 
 a {
