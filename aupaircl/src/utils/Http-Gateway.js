@@ -40,10 +40,14 @@ AxiosClient.interceptors.response.use(
         if(error.response.status){
             switch(error.response.status){
                 case 401:
-           
-                    return Promise.resolve()
+                    break;
                 case 500:
                     break;
+                case 600:
+                    break;
+                case 601:
+                    break;
+                
             }
             return Promise.reject(error)
         }
