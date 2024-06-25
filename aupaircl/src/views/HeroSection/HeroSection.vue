@@ -5,8 +5,8 @@
               <h1 class="display-3 mb-4">{{ $t('welcomeAuPairCl') }}</h1>
               <p class="lead mb-4">{{ $t('findAuPairOrFamily') }}</p>
               <div class="button-container">
-                  <b-button variant="outline-primary" href="#" class="btn-mas-info">{{ $t('findAuPair') }}</b-button>
-                  <b-button variant="primary" :to="{ name: 'encontrarF' }" class="btn-empezar ">{{ $t('findAFamily') }}</b-button>
+                  <b-button :to="{name:'encontrarA'}" class="btn-mas-info">{{ $t('findAuPair') }}</b-button>
+                  <b-button :to="{ name: 'encontrarF' }" class="btn-empezar ">{{ $t('findAFamily') }}</b-button>
               </div>
           </div>
       </div>

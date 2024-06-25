@@ -2,6 +2,7 @@ import Login from '../views/Login/Login.vue'
 import LandPage from '../views/LandPage/LandPage.vue'
 import Contacto from '../views/Contact/Contacto.vue'
 import SearchFamily from '../views/SearchFamily/SearchFamily.vue'
+import SearchAuPair from '../views/SearchAuPair/SearchAuPair.vue'
 export default [
     {
         path: '/',
@@ -43,9 +44,18 @@ export default [
                 name: 'encontrarF',
                 component: SearchFamily,
                 meta:{
-                    title: 'Encontrar F',
+                    title: 'Encontrar Familia',
+                }
+            },
+            {
+                path: '/encontrar-aupair',
+                name: 'encontrarA',
+                component: SearchAuPair,
+                meta:{
+                    title: 'Encontrar Aupair',
                 }
             }
+
         ]
     }
 ]
