@@ -1,31 +1,31 @@
 <template>
   <div class="container my-5" data-aos="fade-up" data-aos-duration="1500">
-    <h1 class="text-center titleColor mb-5">Encuentra una familia de acogida</h1>
+    <h1 class="text-center titleColor mb-5">{{ $t('findHostFamily') }}</h1>
     <b-card class="p-2 mb-5 shadow custom-card">
       <b-form @submit.prevent="onSubmit">
         <b-row>
           <b-col cols="12" md="6">
-            <b-form-group label="Provengo de *" label-for="country">
+            <b-form-group :label="$t('hostLocation')" label-for="country">
               <b-form-select v-model="form.country" :options="countries" required></b-form-select>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-            <b-form-group label="Soy *" label-for="gender">
+            <b-form-group :label="$t('whatGender')" label-for="gender">
               <b-form-radio-group v-model="form.gender" :options="genders" required></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
         <b-row class="justify-content-center">
-          <b-form-group label="Me gustaría ser au pair en *" label-for="destination">
-          <div class="destination-scroll">
-            <b-form-checkbox-group v-model="form.destination" :options="destinations" name="destination" stacked></b-form-checkbox-group>
-          </div>
-        </b-form-group>
+          <b-form-group :label="$t('likeLocation')" label-for="destination">
+            <div class="destination-scroll">
+              <b-form-checkbox-group v-model="form.destination" :options="destinations" name="destination" stacked></b-form-checkbox-group>
+            </div>
+          </b-form-group>
         </b-row>
 
         <b-row>
           <b-col cols="12" md="6">
-            <b-form-group label="Fecha de comienzo (como muy pronto)" label-for="startMonth">
+            <b-form-group :label="$t('dateStart')" label-for="startMonth">
               <b-input-group>
                 <b-input-group-prepend is-text>Fecha</b-input-group-prepend>
                 <b-form-select v-model="form.startMonth" :options="months" required></b-form-select>
@@ -33,7 +33,7 @@
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-            <b-form-group label="Fecha de comienzo (como muy tarde)" label-for="startYear">
+            <b-form-group :label="$t('dateEnd')" label-for="startYear">
               <b-input-group>
                 <b-input-group-prepend is-text>Fecha</b-input-group-prepend>
                 <b-form-select v-model="form.startYear" :options="years" required></b-form-select>
@@ -43,17 +43,17 @@
         </b-row>
         <b-row>
           <b-col cols="12" md="6">
-            <b-form-group label="Duración mínima de la estancia (meses)" label-for="minDuration">
+            <b-form-group :label="$t('minStay')" label-for="minDuration">
               <b-form-select v-model="form.minDuration" :options="durations" required></b-form-select>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-            <b-form-group label="Duración máxima de la estancia (meses)" label-for="maxDuration">
+            <b-form-group :label="$t('maxStay')" label-for="maxDuration">
               <b-form-select v-model="form.maxDuration" :options="durations" required></b-form-select>
             </b-form-group>
           </b-col>
         </b-row>
-        <b-button type="submit" class="global-button">Buscar</b-button>
+        <b-button type="submit" class="global-button mt-2 px-5">{{ $t('searchBtn') }}</b-button>
       </b-form>
     </b-card>
 
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import familyServices from '../../services/Family/family.services';
+import familyServices from '../../services/Family/family-services';
 
 export default {
   data() {
@@ -95,11 +95,10 @@ export default {
         { value: null, text: 'Selecciona un país' },
         { value: 'Austria', text: 'Austria' },
         { value: 'Germany', text: 'Alemania' },
-        { value: 'France', text: 'Francia' },
+        { value: 'Francia', text: 'Francia' },
         { value: 'Spain', text: 'España' },
         { value: 'Italy', text: 'Italia' },
         { value: 'Mexico', text: 'Mexico' }
-
       ],
       genders: [
         { text: 'una chica au pair', value: 'Femenino' },
@@ -112,7 +111,6 @@ export default {
         { value: 'Argentina', text: 'Argentina' },
         { value: 'Australia', text: 'Australia' },
         { value: 'Francia', text: 'Francia' },
-
       ],
       
       months: [],
@@ -193,10 +191,6 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: #f8f9fa;
-}
-
 .card-img-top {
   height: 200px;
   object-fit: cover;
@@ -222,18 +216,14 @@ body {
 
 .custom-card {
   border: none;
-  border-radius: 15px;
+  border-radius: 30px;
   overflow: hidden;
 }
 
 .destination-scroll {
   max-height: 75px;
   overflow-y: auto;
-  border: 1px solid #ced4da;
+  /* border: 1px solid #ced4da; */
   width: 300px;
 }
-
-
-
-
 </style>

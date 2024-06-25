@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SERVER_URL = import.meta.SERVER_URL
+const SERVER_URL = "http://localhost:8080/api"
 const AxiosClient = axios.create({
     baseURL: SERVER_URL,
     timeout: 3000
