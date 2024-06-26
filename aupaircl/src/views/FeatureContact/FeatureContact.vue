@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-5 border-top">
+    <div class="mt-5">
         <b-container>
             <b-card class="p-4" border-variant="light">
                 <b-row>

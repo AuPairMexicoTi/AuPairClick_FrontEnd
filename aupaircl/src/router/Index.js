@@ -50,7 +50,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next)=> {
- 
+    const isTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title)
+    if (isTitle) {
+      document.title = isTitle.meta.title
+    }
     next()
 })
 

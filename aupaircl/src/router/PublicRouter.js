@@ -3,6 +3,7 @@ import LandPage from '../views/LandPage/LandPage.vue'
 import Contacto from '../views/Contact/Contacto.vue'
 import SearchFamily from '../views/SearchFamily/SearchFamily.vue'
 import SearchAuPair from '../views/SearchAuPair/SearchAuPair.vue'
+import Profile from '../views/Profile/Profile.vue'
 export default [
     {
         path: '/',
@@ -26,7 +27,7 @@ export default [
                 name: 'login',
                 component: Login,
                 meta:{
-                    title: 'Login',
+                    title: 'Inicio de sesión',
                 }
             },
             {
@@ -54,8 +55,15 @@ export default [
                 meta:{
                     title: 'Encontrar Aupair',
                 }
+            },
+            {
+                path: '/perfil',
+                name:'perfil',
+                component:Profile,
+                meta:{
+                    title: 'Perfil',
+                }
             }
-
         ]
     }
 ]
