@@ -1,5 +1,5 @@
 import api from '../../utils/Http-Gateway'
-import apiPublic from "../utils/Http-Gateway-Public";
+import apiPublic from "../../utils/Http-Gateway-Public";
 const findHostFamily = async (data) => {
   try {
     

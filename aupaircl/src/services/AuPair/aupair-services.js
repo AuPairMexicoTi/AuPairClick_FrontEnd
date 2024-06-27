@@ -1,5 +1,5 @@
 import api from '../../utils/Http-Gateway'
-import apiPublic from "../utils/Http-Gateway-Public";
+import apiPublic from "../../utils/Http-Gateway-Public";
 
 const findAuPair = async (data) => {
   try {
@@ -10,14 +10,15 @@ const findAuPair = async (data) => {
     return error.response;
   }
 };
-const profileAuPair = async(data) => {
+const getProfileAuPairByEmail = async(email) => {
 try {
-  const response = await api.doPost("/profileAuPair/findAuPair", data);
+  const response = await api.doGet(`/profile/getProfileAuPairByEmail/${email}`);
+  return response.data;
 } catch (error) {
   return error.response;
 }
 }
 export default {
     findAuPair,
-    profileAuPair
+    getProfileAuPairByEmail
 }

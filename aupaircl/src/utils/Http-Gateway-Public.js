@@ -1,7 +1,7 @@
 import axios from "axios";
 import router from "@/router";
-import Alerts from '../services/Alerts';
-import store from "../store/index";
+import Alerts from '../utils/Alerts';
+import store from "../store/store";
 import { decrypt , encrypt} from "./crypto";
 const SERVER_URL = "http://127.0.0.1:8080/api"
 const client = axios.create({

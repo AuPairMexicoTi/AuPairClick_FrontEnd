@@ -1,37 +1,181 @@
-<template lang="">
-   <b-container>
-    <b-row class="justify-content-center">
-        <b-col cols="12" md="8">
-            <b-card class="p-3">
-                <b-row class="justify-content-center">
-                    <b-col cols="12" md="2" class="text-md-center text-center">
-                        <b-avatar variant="info" src="https://placekitten.com/300/300"></b-avatar>
-                    </b-col>
-                    <b-col cols="12" md="10" class="text-start">
-                        <h3>Brandon Hernandez</h3>
-                        <p>Hola, Bienvenid@ a tu perfil</p>
-                    </b-col>
-                </b-row>
-                <div class="border-top"></div>
-                <b-row class="mt-4">
-                    <b-col cols="12">
-                        <h4>Nombre completo</h4>
-                        <p>Por favor de llenar el nombre y el apellido</p>
-                    </b-col>
-                    <b-col cols="12" md="5">
-                        <p></p>
-                    </b-col>
-                </b-row>
-            </b-card>
-        </b-col>
+<template>
+  <div class="profile-card p-3">
+    <Loading v-if="loading"/>
+    <b-row>
+      <b-col cols="4">
+        <b-card class="mb-3">
+          <b-card-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBTe8IG6rXlVECWmTReMo0IvRS2luQudNuVaT-xKNJybviMW1ky9qGTYgcjeBN86wgvUE&usqp=CAU" alt="Profile Image" top></b-card-img>
+          <b-card-body>
+            <b-card-title>Buscar</b-card-title>
+            <b-card-text>
+              <p>Familia de acogida en Alemania, Estados Unidos</p>
+              <p>Lengua materna: español</p>
+              <p>Región preferida: new york</p>
+              <p>Niños de entre 3 y 10 años</p>
+            </b-card-text>
+          </b-card-body>
+        </b-card>
+
+        <b-card class="mb-3">
+          <b-card-title>Más información</b-card-title>
+          <b-card-text>
+            <ul class="list-group list-group-flush">
+              <li v-for="(info, key) in profile.moreInfo" :key="key" class="list-group-item d-flex justify-content-between align-items-center">
+                {{ info.label }}
+                <b-icon :icon="info.value ? 'check2-circle' : 'x-circle'" :variant="info.value ? 'success' : 'danger'"></b-icon>
+              </li>
+            </ul>
+          </b-card-text>
+        </b-card>
+      </b-col>
+
+      <b-col cols="8">
+        <b-card class="mb-3">
+          <b-card-body>
+            <b-card-title class="display-4  ">Au pair {{ profile.nameHost }}</b-card-title>
+            <p class="">chica, {{ profile.age }} años</p>
+            <p>Vivo en {{ profile.location }}, Nacionalidad: {{ profile.nationality }}</p>
+            <p>Lengua materna: {{ profile.languages[0] }}</p>
+            <p>Buen nivel de {{ profile.languages[1] }}</p>
+            <p>Nivel básico de {{ profile.languages[2] }}</p>
+
+            <div class="date-duration m-3">
+              <p><strong>Fecha de inicio:</strong> {{ profile.startDate }} - {{ profile.endDate }}</p>
+              <p><strong>Duración de la estancia:</strong> {{ profile.duration }}</p>
+            </div>
+
+            <!-- <b-button class="global-button m-3">Escribir mensaje</b-button> -->
+
+            <b-card-text >
+              <b-row>
+                <b-col>
+                  <p>Última actividad</p>
+                </b-col>
+                <b-col class="text-center">
+                  <p>{{ profile.lastActivity }}</p>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <p>Número de perfil</p>
+                </b-col>
+                <b-col class="text-center">
+                  <p>{{ profile.profileNumber }}</p>
+                </b-col>
+              </b-row>
+
+              <b-card>
+                <b-card-header>
+                  <b-card-title>Querida familia</b-card-title>
+                </b-card-header>
+                <b-card-body>
+                  <p>{{ profile.description }}</p>
+                  <b-button variant="link">modificar</b-button>
+                </b-card-body>
+              </b-card>
+            </b-card-text>
+          </b-card-body>
+        </b-card>
+      </b-col>
     </b-row>
-   </b-container>
+  </div>
 </template>
+
 <script>
+import utils from '../../utils/utils';
+import aupairServices from '../../services/AuPair/aupair-services';
+import Alerts from '../../utils/Alerts';
+import Loading from '../../components/Loading/Loading.vue'
 export default {
-    
-}
+  data() {
+    return {
+      role:null,
+      loading: false,
+      profile: {
+        nameHost: '',
+        age: 25,
+        location: 'Argentina',
+        nationality: 'argentino/a',
+        languages: ['español', 'inglés', 'francés'],
+        startDate: '08 / 2024',
+        endDate: '04 / 2025',
+        duration: '1 - 9 meses',
+        lastActivity: 'hoy',
+        profileNumber: '13405237',
+        description: 'Hola, mi nombre es Christian. Actualmente estoy buscando una buena familia de acogida.',
+        moreInfo: {
+          smokes: { label: 'Fumo', value: false },
+          willingToWorkWithSmokerFamily: { label: 'Dispuesto a trabajar en familia fumadora', value: true },
+          hasDrivingLicense: { label: 'Tengo carné de conducir', value: true },
+          willingToHelpWithHousework: { label: 'Quiero ayudar con tareas del hogar', value: true },
+          experienceWithChildren: { label: 'Experiencia cuidando a niños', value: true },
+          willingToCareForSpecialNeedsChildren: { label: 'Disponible para cuidar de niños con necesidades especiales', value: true },
+          willingToWorkInSingleParentFamily: { label: 'Disponible para trabajar en familia monoparental', value: false },
+          vegetarianOrVegan: { label: 'Vegetariano o vegano', value: true }
+        }
+      }
+    };
+  },
+  mounted(){
+    this.role = utils.getRole().toString().toLowerCase();
+    this.fetchProfileAuPair()
+  },
+  methods: {
+    async fetchProfileAuPair() {
+      this.loading=true;
+      try {
+        const user = utils.getUserName();
+        const response = await aupairServices.getProfileAuPairByEmail(user);
+        console.log(response)
+        if (response && response.statusCode === 200) {
+          this.profile.nameHost = response.data.name;
+        } else {
+          Alerts.showMessageSuccess('Error al obtener el perfil.',"error");
+        }
+      } catch (error) {
+        Alerts.showMessageSuccess('Error al obtener el perfil.',"error");
+      }finally{
+        this.loading=false;
+      }
+    }
+  },
+  components: {
+    Loading
+  },
+};
 </script>
-<style lang="">
-    
+
+<style scoped>
+.profile-card {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titleColor {
+  color: #6600FF;
+}
+
+.titleColorHeader {
+  color: #965FFF;
+}
+
+.global-button {
+  background-color: #6600FF !important;
+  color: white !important;
+  border: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.global-button:hover {
+  background-color: #7436CC !important;
+  text-decoration: none !important;
+}
+
+.date-duration {
+  background-color: #dcc9ffcc;
+  padding: 0.1rem;
+  border-radius: 0.25rem; 
+}
 </style>

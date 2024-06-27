@@ -1,5 +1,6 @@
 <template>
   <div class="pt-5 pb-5" data-aos="fade-up"  data-aos-duration="1500">
+    <Loading v-if="loading" />
   <div class="container" :class="{ active: isActive }" id="container">
     <div class="form-container sign-up">
       <b-form @submit.prevent="onSignUp">
@@ -46,10 +47,15 @@
 
 <script>
 import authService from '../../services/auth-services'
+import {mapActions} from 'vuex'
+import utils from '../../utils/utils';
+import Loading from '../../components/Loading/Loading.vue'
+import Alerts from '../../utils/Alerts';
 export default {
   data() {
     return {
       isActive: false,
+      loading: false,
       signUpForm: {
         username: '',
         email: '',
@@ -62,7 +68,12 @@ export default {
       },
     };
   },
+  components: {
+  Loading
+  },
   methods: {
+    ...mapActions(['loginUser']),
+
     toggleForm(isActive) {
       this.isActive = isActive;
     },
@@ -76,10 +87,23 @@ export default {
     },
    async onSignIn() {
     try {
+      this.loading = true;
       const {data,statusCode} = await authService.login(this.signInForm.email,this.signInForm.password);
-      console.log(data)
+     if( statusCode == 201){
+      Alerts.showMessageSuccess("Bienvenido","success")
+      this.loginUser(data);
+      const role = utils.getRole();
+      if(role.toString().toLowerCase() === 'aupair') {
+        this.$router.push('/perfil');
+      }else if(role.toString().toLowerCase() === 'family') {
+        this.$router.push('/encontrar-aupair');
+      }
+     }
+
     } catch (error) {
-      console.log('Algo sucedio al iniciar sesión' + error)
+      Alerts.showMessageSuccess("Proceso invalido", "error");
+    }finally{
+      this.loading = false;
     }
     },
   },
