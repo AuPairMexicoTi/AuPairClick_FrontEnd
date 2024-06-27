@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import Alerts from "./Alerts";
 const SERVER_URL = "http://localhost:8080/api"
 const AxiosClient = axios.create({
     baseURL: SERVER_URL,
@@ -35,18 +35,39 @@ AxiosClient.interceptors.response.use(
     },
     async (error) => {
         if(!error.response){
+            Alerts.showMessageSuccess("El servidor no respondio", "error");
             return Promise.reject(error)
         }
         if(error.response.status){
             switch(error.response.status){
+                case 400:
+                    Alerts.showMessageSuccess("Error de validacion", "error");
+                    break;
+                case 403:
+                    Alerts.showMessageSuccess("Acceso denegado", "error");
+                    break;
+                case 404:
+                    Alerts.showMessageSuccess("Recurso no encontrado", "error");
+                    break;
+                case 405:
+                    Alerts.showMessageSuccess("Metodo no permitido", "error");
+                    break;
                 case 401:
+                    Alerts.showMessageSuccess("Token expirado", "error");
                     break;
                 case 500:
+                    Alerts.showMessageSuccess("Error interno del servidor", "error");
                     break;
                 case 600:
+                    Alerts.showMessageSuccess("Credenciales invalidas", "error");
                     break;
                 case 601:
+                    Alerts.showMessageSuccess("Cuenta bloqueada temporalmente", "error");
                     break;
+                case 602:
+                    Alerts.showMessageSuccess("Estas a punto de bloquear la cuenta", "error");
+                    break;
+                default:
                 
             }
             return Promise.reject(error)
