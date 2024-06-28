@@ -4,14 +4,15 @@
     <b-row>
       <b-col cols="4">
         <b-card class="mb-3">
-          <b-card-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBTe8IG6rXlVECWmTReMo0IvRS2luQudNuVaT-xKNJybviMW1ky9qGTYgcjeBN86wgvUE&usqp=CAU" alt="Profile Image" top></b-card-img>
+          <b-card-img :src="profile.images[0]?.imageName" :alt="profile.images[0]?.imageLabel" top></b-card-img>
           <b-card-body>
-            <b-card-title>Buscar</b-card-title>
+            <b-card-title>Busco</b-card-title>
             <b-card-text>
               <p>Familia de acogida en Alemania, Estados Unidos</p>
               <p>Lengua materna: español</p>
               <p>Región preferida: new york</p>
-              <p>Niños de entre 3 y 10 años</p>
+              <p>Tipo de locación: {{ profile.locationType }}</p>
+              <p>Niños de entre {{ profile.minAgeChildren }} y {{ profile.maxAgeChildren }} años</p>
             </b-card-text>
           </b-card-body>
         </b-card>
@@ -33,15 +34,15 @@
         <b-card class="mb-3">
           <b-card-body>
             <b-card-title class="display-4  ">Au pair {{ profile.nameHost }}</b-card-title>
-            <p class="">chica, {{ profile.age }} años</p>
+            <p class="">{{ profile.gender }}, {{ profile.age }} años</p>
             <p>Vivo en {{ profile.location }}, Nacionalidad: {{ profile.nationality }}</p>
-            <p>Lengua materna: {{ profile.languages[0] }}</p>
-            <p>Buen nivel de {{ profile.languages[1] }}</p>
-            <p>Nivel básico de {{ profile.languages[2] }}</p>
+            <p>Lengua materna: {{ profile.languageOur }}</p>
+            <p>Buen nivel de {{ profile.languageOther }}</p>
+            <p>Nivel básico de {{ profile.languageOther }}</p>
 
             <div class="date-duration m-3">
               <p><strong>Fecha de inicio:</strong> {{ profile.startDate }} - {{ profile.endDate }}</p>
-              <p><strong>Duración de la estancia:</strong> {{ profile.duration }}</p>
+              <p><strong>Duración de la estancia:</strong> {{ profile.minDuration }} - {{ profile.maxDuration }} meses</p>
             </div>
 
             <!-- <b-button class="global-button m-3">Escribir mensaje</b-button> -->
@@ -93,14 +94,21 @@ export default {
       loading: false,
       profile: {
         nameHost: '',
-        age: 25,
+        gender:'',
+        age: '',
+        images: [],
         location: 'Argentina',
+        locationType: '',
         nationality: 'argentino/a',
-        languages: ['español', 'inglés', 'francés'],
+        languageOur:'',
+        languageOther:'',
         startDate: '08 / 2024',
         endDate: '04 / 2025',
-        duration: '1 - 9 meses',
-        lastActivity: 'hoy',
+        minDuration: '1 meses',
+        maxDuration: '9 meses',
+        minAgeChildren: '1',
+        maxAgeChildren:'2',
+        lastActivity: '',
         profileNumber: '13405237',
         description: 'Hola, mi nombre es Christian. Actualmente estoy buscando una buena familia de acogida.',
         moreInfo: {
@@ -128,16 +136,32 @@ export default {
         const response = await aupairServices.getProfileAuPairByEmail(user);
         console.log(response)
         if (response && response.statusCode === 200) {
+          const data = response.data;
           this.profile ={
-            nameHost:response.data.name,
-            age: response.data.age,
-           
-          }
+            ...this.profile,
+            nameHost:data.name || '',
+            age: data.age || 0,
+            gender:data.gender == "Masculino" ? 'chico' : 'chica',
+            location: data.country || '',
+            nationality: data.nationality || '',
+            languageOur:data.languageOur || '',
+            languageOther:data.languageOther || '',
+            startDate: data.startDate || '',
+            endDate: data.endDate || '',
+            minDuration: data.minStayMonths || '',
+            maxDuration:data.maxStayMonths || '',
+            minAgeChildren: data.childrenAgeMin || '',
+            maxAgeChildren: data.childrenAgeMax || '',
+            lastActivity: data.lastLogin || '',
+            profileNumber: data.profileNumber || '',
+            description: data.aboutMe || '',
+            locationType: data.locationType || '',
+            images: data.images || []
+          } 
         } else {
-          Alerts.showMessageSuccess('Error al obtener el perfil.',"error");
         }
       } catch (error) {
-        Alerts.showMessageSuccess('Error al obtener el perfil.',"error");
+        
       }finally{
         this.loading=false;
       }
