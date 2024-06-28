@@ -70,6 +70,9 @@ client.interceptors.response.use(
                 case 602:
                     Alerts.showMessageSuccess("Estas a punto de bloquear tu cuenta", "warning")
                     break;
+                case 599:
+                    Alerts.showMessageSuccess("No has verificado tu cuenta", "error")
+                    break;
             }
             return Promise.reject(error)
         }
