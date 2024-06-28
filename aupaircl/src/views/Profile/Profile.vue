@@ -128,7 +128,11 @@ export default {
         const response = await aupairServices.getProfileAuPairByEmail(user);
         console.log(response)
         if (response && response.statusCode === 200) {
-          this.profile.nameHost = response.data.name;
+          this.profile ={
+            nameHost:response.data.name,
+            age: response.data.age,
+           
+          }
         } else {
           Alerts.showMessageSuccess('Error al obtener el perfil.',"error");
         }
