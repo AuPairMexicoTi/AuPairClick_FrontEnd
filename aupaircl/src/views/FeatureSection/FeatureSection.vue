@@ -6,6 +6,7 @@
       <FeatureCountries/>
       <FeatureTestimonios/>
       <FeatureContact/>
+      <Pricing/>
     </div>
   </template>
   
@@ -15,6 +16,7 @@ import FeatureCardLandPage from "../FeatureCardLandPage/FeatureCardLandPage.vue"
   import FeatureCountries from "../FeatureCountries/FeatureCountries.vue";
   import FeatureTestimonios from "../FeatureTestimonios/FeatureTestimonios.vue";
   import FeatureContact from "../FeatureContact/FeatureContact.vue";
+  import Pricing from "../Pricing/Pricing.vue";
   export default {
     components: {
       FeatureCardRegister,
@@ -22,6 +24,7 @@ import FeatureCardLandPage from "../FeatureCardLandPage/FeatureCardLandPage.vue"
       FeatureCountries,
       FeatureTestimonios,
       FeatureContact,
+      Pricing
     }
   }
   </script>
