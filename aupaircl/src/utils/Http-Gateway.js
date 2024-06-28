@@ -1,5 +1,6 @@
 import axios from "axios";
 import Alerts from "./Alerts";
+import store from "../store/store";
 const SERVER_URL = "http://localhost:8080/api"
 const AxiosClient = axios.create({
     baseURL: SERVER_URL,
@@ -53,7 +54,10 @@ AxiosClient.interceptors.response.use(
                     Alerts.showMessageSuccess("Metodo no permitido", "error");
                     break;
                 case 401:
-                    Alerts.showMessageSuccess("Token expirado", "error");
+                    Alerts.showMessageSuccess("Token expirado", "error") .then(() => {
+                        store.commit('clearToken');
+                        // router.push({ name: 'unautorized' })
+                    });
                     break;
                 case 500:
                     Alerts.showMessageSuccess("Error interno del servidor", "error");
